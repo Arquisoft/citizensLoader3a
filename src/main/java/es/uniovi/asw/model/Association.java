@@ -1,7 +1,8 @@
-package es.uniovi.asw.Model;
+package es.uniovi.asw.model;
 
 public class Association {
 	public static class AsignarUsuario{
+		
 		public static void link(Usuario usuario, Ciudadano ciudadano){
 			usuario._setCiudadano(ciudadano);
 			ciudadano._setUsuario(usuario);

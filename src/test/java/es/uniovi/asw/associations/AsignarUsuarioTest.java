@@ -1,36 +1,38 @@
-package modelTest;
+package es.uniovi.asw.associations;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import es.uniovi.asw.Model.Ciudadano;
-import es.uniovi.asw.Model.Usuario;
+import es.uniovi.asw.model.Association;
+import es.uniovi.asw.model.Ciudadano;
+import es.uniovi.asw.model.Usuario;
 
-public class AssociationTest {
+public class AsignarUsuarioTest {
 
 	private Ciudadano ciudadano;
 	private Usuario usuario;
 
 	@Before
 	public void setUp() {
-		ciudadano = new Ciudadano("Pepe", "Pérez", "pp@gmail.es", new java.util.Date(), "33586", "España", "12345678-A");
+		ciudadano = new Ciudadano("Pepe", "Pérez", "pp@gmail.es", null, "33586", "España", "12345678-A");
 		usuario = new Usuario("Pepe", "abcd", ciudadano);
+		Association.AsignarUsuario.link(usuario, ciudadano);
 	}
 	
 	@Test
-	public void testAsignacion(){
+	public void testAsignarUsuarioLinked(){
 		assertTrue(ciudadano.getUsuario() == usuario);
 		assertTrue(usuario.getCiudadano() == ciudadano);
-	}
+	}	
 	
 	@Test
 	public void testAtributos(){
 		assertTrue(ciudadano.getNombre().equals("Pepe"));
 		assertTrue(ciudadano.getApellidos().equals("Pérez"));
 		assertTrue(ciudadano.getEmail().equals("pp@gmail.es"));
-		assertTrue(ciudadano.getFechaNacimiento().equals(new java.util.Date()));
+		assertTrue(ciudadano.getFechaNacimiento() == null);
 		assertTrue(ciudadano.getResidencia().equals("33586"));
 		assertTrue(ciudadano.getNacionalidad().equals("España"));
 		assertTrue(ciudadano.getDni().equals("12345678-A"));
@@ -39,13 +41,12 @@ public class AssociationTest {
 		assertTrue(usuario.getContraseña().equals("abcd"));
 	}
 	
-	@Test
-	public void testDesasignados(){
-		usuario.desasignar();
-		
+	@Test 
+	public void testAsignarUsuarioUnLink() {
+		Association.AsignarUsuario.unLink(usuario, ciudadano);
+	
 		assertTrue(ciudadano.getUsuario() == null);
 		assertTrue(usuario.getCiudadano() == null);
+		
 	}
-
-
 }
