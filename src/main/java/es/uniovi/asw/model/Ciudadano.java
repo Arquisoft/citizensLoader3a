@@ -4,34 +4,34 @@ import java.util.Date;
 import javax.persistence.*;
 
 @Entity
-@Table (name = "TCiudadanos")
+@Table(name = "TCiudadanos")
 public class Ciudadano {
-	
-	@Id 
+
+	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	private String nombre;
 	private String apellidos;
 	private String email;
-	
+
 	@Temporal(TemporalType.DATE)
 	private Date fechaNacimiento;
-	
+
 	private String residencia;
 	private String nacionalidad;
-	private String dni;	//Clave primaria
-	
-	@OneToOne(mappedBy="ciudadano")
-	private Usuario usuario;	
-	
-	Ciudadano () {		
+	private String dni; // Clave primaria
+
+	@OneToOne(mappedBy = "ciudadano")
+	private Usuario usuario;
+
+	Ciudadano() {
 	}
-	
-	public Ciudadano (String dni) {
+
+	public Ciudadano(String dni) {
 		this.dni = dni;
 	}
-	
+
 	public Ciudadano(String nombre, String apellidos, String email, Date fechaNacimiento, String residencia,
 			String nacionalidad, String dni) {
 		this(dni);
@@ -40,45 +40,45 @@ public class Ciudadano {
 		this.email = email;
 		this.fechaNacimiento = fechaNacimiento;
 		this.residencia = residencia;
-		this.nacionalidad = nacionalidad;		
+		this.nacionalidad = nacionalidad;
 	}
-	
-	public Long getId () {
+
+	public Long getId() {
 		return id;
 	}
-	
+
 	public String getNombre() {
-		return nombre; 
+		return nombre;
 	}
-	
-	public void setNombre (String nombre) {
+
+	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	
+
 	public String getApellidos() {
 		return apellidos;
 	}
-	
-	public void setApellidos (String apellidos) {
+
+	public void setApellidos(String apellidos) {
 		this.apellidos = apellidos;
 	}
-	
+
 	public String getEmail() {
 		return email;
 	}
-	
-	public void setEmail (String email) {
+
+	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+
 	public Date getFechaNacimiento() {
 		return fechaNacimiento;
 	}
-	
+
 	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
-	
+
 	public String getResidencia() {
 		return residencia;
 	}
@@ -86,21 +86,21 @@ public class Ciudadano {
 	public void setResidencia(String residencia) {
 		this.residencia = residencia;
 	}
-	
+
 	public String getNacionalidad() {
 		return nacionalidad;
 	}
-	
+
 	public void setNacionalidad(String nacionalidad) {
 		this.nacionalidad = nacionalidad;
 	}
-	
-	public String getDni(){
+
+	public String getDni() {
 		return dni;
 	}
-	
-	//No hay set de dni
-	
+
+	// No hay set de dni
+
 	public Usuario getUsuario() {
 		return usuario;
 	}
@@ -108,7 +108,6 @@ public class Ciudadano {
 	protected void _setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-	
 
 	@Override
 	public String toString() {
@@ -116,7 +115,7 @@ public class Ciudadano {
 				+ fechaNacimiento + ", residencia=" + residencia + ", nacionalidad=" + nacionalidad + ", dni=" + dni
 				+ "]";
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -140,5 +139,5 @@ public class Ciudadano {
 		} else if (!dni.equals(other.dni))
 			return false;
 		return true;
-	}	
+	}
 }

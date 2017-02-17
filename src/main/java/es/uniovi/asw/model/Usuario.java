@@ -3,63 +3,63 @@ package es.uniovi.asw.model;
 import javax.persistence.*;
 
 @Entity
-@Table (name = "TUsuarios")
+@Table(name = "TUsuarios")
 public class Usuario {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	private String usuario; //Clave primaria
+
+	private String usuario; // Clave primaria
 	private String contraseña;
-	
+
 	@OneToOne
 	@JoinColumn(name = "CIUDADANO_ID")
 	private Ciudadano ciudadano;
-	
-	Usuario() {		
+
+	Usuario() {
 	};
-	
-	public Usuario (String usuario){
-		this.usuario = usuario;		
+
+	public Usuario(String usuario) {
+		this.usuario = usuario;
 	}
-	
+
 	public Usuario(String usuario, String contraseña, Ciudadano ciudadano) {
 		this(usuario);
 		this.contraseña = contraseña;
-		this.ciudadano = ciudadano;		
+		this.ciudadano = ciudadano;
 	}
-	
-	public Long getId(){
+
+	public Long getId() {
 		return id;
 	}
-	
+
 	public String getUsuario() {
 		return usuario;
 	}
-	
-	//No hay de usuario
-	
+
+	// No hay de usuario
+
 	public String getContraseña() {
 		return contraseña;
 	}
-	
+
 	public void setContraseña(String contraseña) {
 		this.contraseña = contraseña;
 	}
-	
+
 	public Ciudadano getCiudadano() {
 		return ciudadano;
 	}
 
 	protected void _setCiudadano(Ciudadano ciudadano) {
 		this.ciudadano = ciudadano;
-	}	
-	
+	}
+
 	@Override
 	public String toString() {
 		return "Usuario [usuario=" + usuario + ", contraseña=" + contraseña + "]";
-	}	
+	}
 
 	@Override
 	public int hashCode() {
@@ -84,5 +84,5 @@ public class Usuario {
 		} else if (!usuario.equals(other.usuario))
 			return false;
 		return true;
-	}	
+	}
 }

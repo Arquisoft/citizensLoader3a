@@ -9,7 +9,7 @@ import es.uniovi.asw.model.Association;
 import es.uniovi.asw.model.Ciudadano;
 import es.uniovi.asw.model.Usuario;
 
-public class AsignarUsuarioTest {
+public class AsignarTest {
 
 	private Ciudadano ciudadano;
 	private Usuario usuario;
@@ -18,17 +18,17 @@ public class AsignarUsuarioTest {
 	public void setUp() {
 		ciudadano = new Ciudadano("Pepe", "Pérez", "pp@gmail.es", null, "33586", "España", "12345678-A");
 		usuario = new Usuario("Pepe", "abcd", ciudadano);
-		Association.AsignarUsuario.link(usuario, ciudadano);
+		Association.Asignar.link(usuario, ciudadano);
 	}
-	
+
 	@Test
-	public void testAsignarUsuarioLinked(){
+	public void testAsignarLink() {
 		assertTrue(ciudadano.getUsuario() == usuario);
 		assertTrue(usuario.getCiudadano() == ciudadano);
-	}	
-	
+	}
+
 	@Test
-	public void testAtributos(){
+	public void testAtributos() {
 		assertTrue(ciudadano.getNombre().equals("Pepe"));
 		assertTrue(ciudadano.getApellidos().equals("Pérez"));
 		assertTrue(ciudadano.getEmail().equals("pp@gmail.es"));
@@ -36,17 +36,16 @@ public class AsignarUsuarioTest {
 		assertTrue(ciudadano.getResidencia().equals("33586"));
 		assertTrue(ciudadano.getNacionalidad().equals("España"));
 		assertTrue(ciudadano.getDni().equals("12345678-A"));
-		
+
 		assertTrue(usuario.getUsuario().equals("Pepe"));
 		assertTrue(usuario.getContraseña().equals("abcd"));
 	}
-	
-	@Test 
-	public void testAsignarUsuarioUnLink() {
-		Association.AsignarUsuario.unLink(usuario, ciudadano);
-	
+
+	@Test
+	public void testAsignarUnlink() {
+		Association.Asignar.unlink(usuario, ciudadano);
+
 		assertTrue(ciudadano.getUsuario() == null);
 		assertTrue(usuario.getCiudadano() == null);
-		
 	}
 }
