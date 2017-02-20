@@ -3,6 +3,7 @@ package es.uniovi.asw;
 import es.uniovi.asw.Parser.RList;
 import es.uniovi.asw.Parser.readers.ExcelReader;
 import es.uniovi.asw.Parser.readers.Reader;
+import es.uniovi.asw.Parser.writers.TXTWriter;
 import es.uniovi.asw.Parser.writers.Writer;
 import es.uniovi.asw.util.Console;
 
@@ -21,27 +22,23 @@ public class Application {
 		String fichero = Console.readString();
 		Console.println();
 		Console.println("Introduzca el formato en el que desea que se le envie los correos a los usuarios: ");
-		String correo = Console.readString();
+		String formatoCorreo = Console.readString();
 		
 		Reader reader = comprobarReader(fichero) ;
-//		Writer writer = comprobarWriter(correo);
+		Writer writer = comprobarWriter(formatoCorreo);
 		
-		do {
-			if (reader != null) {
-				rList = new RList(reader);
-				System.out.println(rList.read(fichero));
-				Console.println("Archivo cargado correctamente");
-			}
-			else {
-				Console.print("Formato de fichero incorrecto, recuerde que el formato del fichero debe ser"
-						+ "alguno de los siguientes: .xlsx");
-			}
+	
+		if (reader != null && writer != null) {
+			rList = new RList();
+			rList.setReader(reader);
+			rList.setWriter(writer);
+			System.out.println(rList.read(fichero));
+			Console.println("Archivo cargado correctamente");
 		}
-		while (reader == null /*|| writer == null*/);
-			
-		
-		
-		
+		else {
+			Console.print("Formato de fichero incorrecto, recuerde que el formato del fichero debe ser"
+					+ "alguno de los siguientes: .xlsx");
+		}		
 	}
 	
 	public static Reader comprobarReader (String fichero) {
@@ -51,7 +48,10 @@ public class Application {
 		return null;
 	}
 	
-	public static Writer comprobarWriter (String correo) {
+	public static Writer comprobarWriter (String formatoCorreo) {
+		if (formatoCorreo.toUpperCase().equals("TXT")) {
+			return new TXTWriter();
+		}
 		return null;
 	}
 }

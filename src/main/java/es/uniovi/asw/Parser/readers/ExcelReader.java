@@ -15,6 +15,8 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import es.uniovi.asw.model.Ciudadano;
+import es.uniovi.asw.util.BusinessException;
+import es.uniovi.asw.util.CiudadanoChecker;
 import es.uniovi.asw.util.Console;
 
 public class ExcelReader implements Reader {	
@@ -31,7 +33,7 @@ public class ExcelReader implements Reader {
 	
 	@Override
 	public List<Ciudadano> read(String fichero) {
-		List<Ciudadano> listaCiudadanos = new ArrayList<>();
+		List<Ciudadano> listaCiudadanos = new ArrayList<Ciudadano>();
 		if(comprobarExtension(fichero)){			
 			FileInputStream file;
 			XSSFWorkbook workbook;
@@ -53,16 +55,23 @@ public class ExcelReader implements Reader {
 //					while(cellIterator.hasNext()) {
 //						cell = cellIterator.next();
 //					}
-					nombre = row.getCell(0).getStringCellValue();
-					apellidos = row.getCell(1).getStringCellValue();
-					email = row.getCell(2).getStringCellValue();
-					fechaNacimiento = row.getCell(3).getDateCellValue();
-					residencia = row.getCell(4).getStringCellValue();
-					nacionalidad = row.getCell(5).getStringCellValue();
-					dni = row.getCell(6).getStringCellValue();					
-					
-					Ciudadano ciudadano = new Ciudadano(nombre, apellidos, email, fechaNacimiento, residencia, nacionalidad, dni);
-					listaCiudadanos.add(ciudadano);
+					try {
+						nombre = CiudadanoChecker.checkNombre(row.getCell(0).getStringCellValue());
+						apellidos = CiudadanoChecker.checkApellidos(row.getCell(1).getStringCellValue());
+						email = CiudadanoChecker.checkEmail(row.getCell(2).getStringCellValue());
+						fechaNacimiento = CiudadanoChecker.checkFechaNacimiento(row.getCell(3).getDateCellValue());
+						residencia = CiudadanoChecker.checkResidencia(row.getCell(4).getStringCellValue());
+						nacionalidad = CiudadanoChecker.checkNacionalidad(row.getCell(5).getStringCellValue());
+						dni = CiudadanoChecker.checkDni(row.getCell(6).getStringCellValue());					
+						
+						Ciudadano ciudadano = new Ciudadano(nombre, apellidos, email, fechaNacimiento, residencia, nacionalidad, dni);
+						listaCiudadanos.add(ciudadano);
+					} catch (BusinessException e) {
+						Console.println(e.getMessage());
+					} catch (Exception e) {
+//						Console.println("Ha habido algún error durante la lectura");
+//						Aqui se enviaría a un log, no se si es el reportWriter u otro fichero log diferente
+					}					
 				}				
 			} catch (FileNotFoundException e) {
 				Console.print("No existe el fichero especificado");
@@ -81,17 +90,5 @@ public class ExcelReader implements Reader {
 	@Override
 	public boolean comprobarExtension(String path) {			
 		return  path.split("\\.")[1].equals("xlsx") ? true : false;
-	}
-
-	@Override
-	public void crearUsuarioPassword() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void crearEmail() {
-		// TODO Auto-generated method stub
-		
 	}	
 }

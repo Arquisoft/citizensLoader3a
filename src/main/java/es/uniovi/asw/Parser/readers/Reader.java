@@ -8,7 +8,5 @@ public interface Reader {
 	
 	public List<Ciudadano> read(String fichero);
 	public boolean comprobarExtension(String fichero);
-	public void crearUsuarioPassword();
-	public void crearEmail();
-
+	
 }

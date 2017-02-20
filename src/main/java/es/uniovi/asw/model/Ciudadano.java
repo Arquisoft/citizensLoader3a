@@ -113,7 +113,7 @@ public class Ciudadano {
 	public String toString() {
 		return "Ciudadano [nombre=" + nombre + ", apellidos=" + apellidos + ", email=" + email + ", fechaNacimiento="
 				+ fechaNacimiento + ", residencia=" + residencia + ", nacionalidad=" + nacionalidad + ", dni=" + dni
-				+ "]";
+				+ ", usuario=" + usuario +"]";
 	}
 
 	@Override
