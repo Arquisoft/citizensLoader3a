@@ -14,39 +14,52 @@ import es.uniovi.asw.util.Console;
 
 public class Application {
 
-	public static void main (String[] args){
-		
-//		System.out.println("Aplicación para la carga de ciudadanos");		
-		
+	public static void main (String[] args){		
 		
 		RList rList;
-		InsertR insertR;
 		
-		Console.println("Bienvenido a citizensLoader3a");
-		Console.println();
-		Console.println("Introduzca el nombre de un fichero con extensión correcta (.xlsx): ");
-		String fichero = Console.readString();
-		Console.println();
-		Console.println("Introduzca el formato en el que desea que se le envie los correos a los usuarios (txt, docx): ");
-		String formatoCorreo = Console.readString();
-		
-		Reader reader = comprobarReader(fichero) ;
-		Writer writer = comprobarWriter(formatoCorreo);
-		
+		Reader reader = null;
+		Writer writer = null;	
+		String fichero;
+		String formatoCorreo;
 	
+		Console.println("Bienvenido a citizensLoader3a");
+		Console.println();	
+		
+		//Para coger un fichero de formato correcto
+		do {
+			Console.println("Introduzca el nombre de un fichero con extensión correcta (.xlsx): ");
+			fichero = Console.readString();
+			reader = comprobarReader(fichero);
+			if(reader == null) {
+				Console.print("Formato de fichero incorrecto, recuerde que el formato del fichero debe ser"
+						+ " alguno de los siguientes: .xlsx\n");
+			}
+			
+		} while (reader == null);
+		
+		//Para coger un formato correcto de correo
+		do {
+			Console.println("Introduzca el formato en el que desea que se le envie los correos a los usuarios (txt, docx): ");
+			formatoCorreo = Console.readString();
+			writer = comprobarWriter(formatoCorreo);
+			if (writer == null) {
+				Console.print("Formato de correo incorrecto, recuerde que el formato del correo debe ser"
+						+ " alguno de los siguientes: txt, docx\n");
+			}
+			
+		} while (writer == null);
+		
+		
+		//Para ejecutar la aplicación
 		if (reader != null && writer != null) {
 			rList = new RList();
 			rList.setReader(reader);
 			rList.setWriter(writer);
 			List<Ciudadano> lista = rList.read(fichero);
-//			new InsertR().insert(lista);;
-			System.out.println(rList.read(fichero));
-			Console.println("Archivo cargado correctamente");
+			new InsertR().insert(lista, fichero);			
 		}
-		else {
-			Console.print("Formato de fichero incorrecto, recuerde que el formato del fichero debe ser"
-					+ "alguno de los siguientes: .xlsx");
-		}		
+			
 	}
 	
 	public static Reader comprobarReader (String fichero) {

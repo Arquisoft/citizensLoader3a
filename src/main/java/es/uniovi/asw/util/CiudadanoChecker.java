@@ -9,7 +9,7 @@ public class CiudadanoChecker {
 
 	public static String checkNombre(String nombre) throws BusinessException {
 		Pattern patron = Pattern.compile("^[a-zA-Z_áéíóúñ^\\s]*$");	
-		if (patron.matcher(nombre.trim()).matches()) {
+		if (patron.matcher(nombre.trim()).matches() &&  nombre.length() != 0) {
 			return nombre;
 		}
 		else {
@@ -19,7 +19,7 @@ public class CiudadanoChecker {
 	
 	public static String checkApellidos (String apellidos) throws BusinessException {
 		Pattern patron = Pattern.compile("^[a-zA-Z_áéíóúñ^\\s]*$");	
-		if (patron.matcher(apellidos.trim()).matches()) {
+		if (patron.matcher(apellidos.trim()).matches() && apellidos.trim().length() != 0) {
 			return apellidos;
 		}
 		else {
@@ -31,7 +31,7 @@ public class CiudadanoChecker {
 		Pattern patron = Pattern.compile("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}"
 				+ "\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])"
 				+ "|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$");
-		if (patron.matcher(email).matches()) {
+		if (patron.matcher(email).matches() && email.length() != 0) {
 			return email;
 		}
 		else {
@@ -52,19 +52,17 @@ public class CiudadanoChecker {
 	}
 	
 	public static String checkResidencia (String residencia) throws BusinessException {
-//		Pattern patron = Pattern.compile("[^\\s]*$");		
-//		if (patron.matcher(residencia.trim()).matches()) {
-//			return residencia;
-//		}
-//		else {
-//			throw new BusinessException("Residencia incorrecta");
-//		}	
-		return residencia;
+		if(residencia.length() != 0) {
+			return residencia;
+		}
+		else {
+			throw new BusinessException("Residencia incorrecta");
+		}		
 	}
 	
 	public static String checkNacionalidad (String nacionalidad) throws BusinessException {
 		Pattern patron = Pattern.compile("^[a-zA-Z_áéíóúñ^\\s]*$");		
-		if (patron.matcher(nacionalidad.trim()).matches()) {
+		if (patron.matcher(nacionalidad.trim()).matches() && nacionalidad.length() != 0) {
 			return nacionalidad;
 		}
 		else {
@@ -74,7 +72,7 @@ public class CiudadanoChecker {
 	
 	public static String checkDni (String dni) throws BusinessException {
 		Pattern patron = Pattern.compile("[0-9]{8}[A-Z]");
-		if (patron.matcher(dni).matches()) {
+		if (patron.matcher(dni).matches() && dni.length() != 0) {
 			return dni;
 		}
 		else {

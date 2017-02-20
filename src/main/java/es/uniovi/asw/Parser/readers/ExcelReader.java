@@ -13,10 +13,11 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import es.uniovi.asw.Parser.WreportQ;
+import es.uniovi.asw.ReportWriter.Level;
 import es.uniovi.asw.model.Ciudadano;
 import es.uniovi.asw.util.BusinessException;
 import es.uniovi.asw.util.CiudadanoChecker;
-import es.uniovi.asw.util.Console;
 
 public class ExcelReader implements Reader {	
 	
@@ -30,30 +31,29 @@ public class ExcelReader implements Reader {
 	private String nacionalidad;
 	private String dni;
 	
+	private WreportQ report = new WreportQ();
+	
 	@Override
 	public List<Ciudadano> read(String fichero) {
 		List<Ciudadano> listaCiudadanos = new ArrayList<Ciudadano>();
+		
 		if(comprobarExtension(fichero)){			
 			FileInputStream file;
 			XSSFWorkbook workbook;
 			XSSFSheet sheet;
 			Iterator<Row> rowIterator;			
-			Row row;	
-//			Iterator<Cell> cellIterator;
-//			Cell cell;
+			Row row;			
 			try {				
 				file = new FileInputStream(new File(PATH+fichero));				
 				workbook= new XSSFWorkbook(file);			
 				sheet = workbook.getSheetAt(0);
 				rowIterator = sheet.iterator();
 				rowIterator.next();
+				int counter = 1;
 				while(rowIterator.hasNext()) {
+					counter++;
 					row = rowIterator.next();					
-//					cellIterator = row.cellIterator();
-//					
-//					while(cellIterator.hasNext()) {
-//						cell = cellIterator.next();
-//					}
+					
 					try {
 						nombre = CiudadanoChecker.checkNombre(row.getCell(0).getStringCellValue());
 						apellidos = CiudadanoChecker.checkApellidos(row.getCell(1).getStringCellValue());
@@ -66,24 +66,24 @@ public class ExcelReader implements Reader {
 						Ciudadano ciudadano = new Ciudadano(nombre, apellidos, email, fechaNacimiento, residencia, nacionalidad, dni);
 						listaCiudadanos.add(ciudadano);
 					} catch (BusinessException e) {
-						Console.println(e.getMessage());
+						String error = "Error de lectura de los datos en la fila "+counter;
+						report.report(error, fichero, Level.ERROR);						
 					} catch (Exception e) {
-//						Console.println("Ha habido algún error durante la lectura");
-//						Aqui se enviaría a un log, no se si es el reportWriter u otro fichero log diferente
-//						Revise la fila: row, ya que sus datos son incorrectos
+						String error = "Error de lectura de los datos en la fila "+counter;
+						report.report(error, fichero, Level.ERROR);						
 					}					
 				}				
 			} catch (FileNotFoundException e) {
-				Console.print("No existe el fichero especificado");
+				String error = "No existe el fichero especificado";
+				report.report(error, fichero, Level.FATAL);				
 			} catch (IOException e) {
-				Console.print("No se puede acceder al fichero especificado, puede que esté abierto");
-			} catch (Exception e) {
-				Console.print("Se ha producido un error irrecuperable");
+				String error = "No se puede acceder al fichero especificado, puede que esté abierto";
+				report.report(error, fichero, Level.FATAL);					
+			} catch (Exception e) {				
+				String error = "Se ha producido un error irrecuperable";
+				report.report(error, fichero, Level.FATAL);	
 			}
-		}
-		else {
-			Console.print("Formato de fichero incorrecto, compruebe que se trata de un fichero .xlsx");
-		}
+		}		
 		return listaCiudadanos;
 	}
 	

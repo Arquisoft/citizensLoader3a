@@ -15,9 +15,6 @@ public class RList implements ReadList {
 	private List<Ciudadano> ciudadanos;
 	private Reader reader;
 	private Writer writer;	
-
-	public RList() {			
-	}
 	
 	public void setReader(Reader reader) {
 		this.reader = reader;
