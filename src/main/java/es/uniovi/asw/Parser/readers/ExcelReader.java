@@ -9,7 +9,6 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
-import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -71,6 +70,7 @@ public class ExcelReader implements Reader {
 					} catch (Exception e) {
 //						Console.println("Ha habido algún error durante la lectura");
 //						Aqui se enviaría a un log, no se si es el reportWriter u otro fichero log diferente
+//						Revise la fila: row, ya que sus datos son incorrectos
 					}					
 				}				
 			} catch (FileNotFoundException e) {

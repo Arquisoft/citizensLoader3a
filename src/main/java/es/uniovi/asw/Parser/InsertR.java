@@ -8,6 +8,9 @@ import es.uniovi.asw.model.Ciudadano;
 
 public class InsertR implements Insert {
 
+	public InsertR() {		
+	}
+	
 	@Override
 	public void insert(List<Ciudadano> ciudadanos) {
 		new InsertP().insert(ciudadanos);

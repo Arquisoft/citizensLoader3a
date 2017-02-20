@@ -16,12 +16,13 @@ public class TXTWriter implements Writer {
 		String direccion = PATH + ciudadano.getUsuario().getUsuario() + ".txt";
 		try{
 			bw = new BufferedWriter(new FileWriter(direccion));
-			bw.write("Hola " + ciudadano.getNombre() + " " + ciudadano.getApellidos());
+			bw.write("\n");
+			bw.write("Hola " + ciudadano.getNombre() + " " + ciudadano.getApellidos() + ",\n");
 			bw.write("Este correo es para informarle de que ha sido dado de alta correctamente en el sistema de participación "
-					+ "ciudadana. A continuación le comunicamos su usuario y contraseña: \n");
+					+ "ciudadana. A continuación, le comunicamos su usuario y contraseña: \n");
+			bw.write("\n");
 			bw.write("\tUsuario: "+ ciudadano.getUsuario().getUsuario() + "\n");
-			bw.write("\tContraseña: "+ ciudadano.getUsuario().getContraseña());
-			
+			bw.write("\tContraseña: "+ ciudadano.getUsuario().getContraseña());			
 		}
 		catch (IOException e) {
 			e.printStackTrace();

@@ -30,8 +30,8 @@ public class RList implements ReadList {
 	@Override
 	public List<Ciudadano> read(String fichero) {	
 		ciudadanos = reader.read(fichero);
-//		crearUsuarios(ciudadanos);
-//		crearEmail(ciudadanos);
+		crearUsuarios(ciudadanos);
+		crearEmail(ciudadanos);
 		return ciudadanos;
 	}
 	
