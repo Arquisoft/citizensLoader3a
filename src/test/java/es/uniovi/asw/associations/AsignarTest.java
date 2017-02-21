@@ -13,6 +13,9 @@ public class AsignarTest {
 
 	private Ciudadano ciudadano;
 	private Usuario usuario;
+	
+	private Ciudadano c2;
+	private Usuario u2;
 
 	@Before
 	public void setUp() {
@@ -40,12 +43,38 @@ public class AsignarTest {
 		assertTrue(usuario.getUsuario().equals("Pepe"));
 		assertTrue(usuario.getContraseña().equals("abcd"));
 	}
-
+	
+	@Test
+	public void testToStringCiudadano(){
+		assertTrue(ciudadano.toString().equals("Ciudadano [nombre=" + ciudadano.getNombre() +
+				", apellidos=" + ciudadano.getApellidos() + ", email=" + ciudadano.getEmail() +
+				", fechaNacimiento=" + ciudadano.getFechaNacimiento() + ", residencia=" +
+				ciudadano.getResidencia() + ", nacionalidad=" + ciudadano.getNacionalidad() + 
+				", dni=" + ciudadano.getDni() + ", usuario=" + usuario.toString() +"]"));
+	}
+	
+	@Test
+	public void testToStringUsuario(){
+		assertTrue(usuario.toString().equals("Usuario [usuario=" + usuario.getUsuario() 
+					+ ", contraseña=" + usuario.getContraseña() + "]"));
+	}
+	
 	@Test
 	public void testAsignarUnlink() {
 		Association.Asignar.unlink(usuario, ciudadano);
 
 		assertTrue(ciudadano.getUsuario() == null);
 		assertTrue(usuario.getCiudadano() == null);
+	}
+	
+	@Test
+	public void testHashCodeOfEquals(){
+		c2 = new Ciudadano("Pepe", "Pérez", "pp@gmail.es", new java.util.Date(), "33586", "España", "12345678-A");
+		assert ciudadano.equals(c2): "Los objetos deberian ser iguales en valor";
+		assert ciudadano.hashCode() == c2.hashCode(): "Hash en objetos iguales no son iguales";
+		
+		u2 = new Usuario("Pepe", "abcd", ciudadano);
+		assert usuario.equals(u2): "Los objetos deberian ser iguales en valor";
+		assert usuario.hashCode() == u2.hashCode(): "Hash en objetos iguales no son iguales";
 	}
 }
