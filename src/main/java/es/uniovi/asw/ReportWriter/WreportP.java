@@ -1,10 +1,12 @@
 package es.uniovi.asw.ReportWriter;
 
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Component;
 
+@Component
 public class WreportP implements WriteReport {
 
-	private static Logger log = Logger.getLogger("CitizensLogger");
+	private static Logger log = Logger.getLogger("CitizensLogger");	
 	
 	@Override
 	public void report(String error, String fichero, Level nivel) {

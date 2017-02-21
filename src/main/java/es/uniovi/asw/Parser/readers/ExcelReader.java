@@ -12,14 +12,20 @@ import java.util.List;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-import es.uniovi.asw.Parser.WreportQ;
 import es.uniovi.asw.ReportWriter.Level;
+import es.uniovi.asw.ReportWriter.WriteReport;
 import es.uniovi.asw.model.Ciudadano;
 import es.uniovi.asw.util.BusinessException;
 import es.uniovi.asw.util.CiudadanoChecker;
 
+@Component
 public class ExcelReader implements Reader {	
+	
+	@Autowired
+	private WriteReport writeReport;
 	
 	private final static String PATH = "src/test/resources/";
 	
@@ -31,59 +37,56 @@ public class ExcelReader implements Reader {
 	private String nacionalidad;
 	private String dni;
 	
-	private WreportQ report = new WreportQ();
-	
 	@Override
 	public List<Ciudadano> read(String fichero) {
-		List<Ciudadano> listaCiudadanos = new ArrayList<Ciudadano>();
+		List<Ciudadano> listaCiudadanos = new ArrayList<Ciudadano>();					
+		FileInputStream file;
+		XSSFWorkbook workbook;
+		XSSFSheet sheet;
+		Iterator<Row> rowIterator;			
+		Row row;	
 		
-		if(comprobarExtension(fichero)){			
-			FileInputStream file;
-			XSSFWorkbook workbook;
-			XSSFSheet sheet;
-			Iterator<Row> rowIterator;			
-			Row row;			
-			try {				
-				file = new FileInputStream(new File(PATH+fichero));				
-				workbook= new XSSFWorkbook(file);			
-				sheet = workbook.getSheetAt(0);
-				rowIterator = sheet.iterator();
-				rowIterator.next();
-				int counter = 1;
-				while(rowIterator.hasNext()) {
-					counter++;
-					row = rowIterator.next();					
+		try {				
+			file = new FileInputStream(new File(PATH+fichero));				
+			workbook= new XSSFWorkbook(file);			
+			sheet = workbook.getSheetAt(0);
+			rowIterator = sheet.iterator();
+			rowIterator.next();
+			int counter = 1;
+			while(rowIterator.hasNext()) {
+				counter++;
+				row = rowIterator.next();					
+				
+				try {
+					nombre = CiudadanoChecker.checkNombre(row.getCell(0).getStringCellValue());
+					apellidos = CiudadanoChecker.checkApellidos(row.getCell(1).getStringCellValue());
+					email = CiudadanoChecker.checkEmail(row.getCell(2).getStringCellValue());
+					fechaNacimiento = CiudadanoChecker.checkFechaNacimiento(row.getCell(3).getDateCellValue());
+					residencia = CiudadanoChecker.checkResidencia(row.getCell(4).getStringCellValue());
+					nacionalidad = CiudadanoChecker.checkNacionalidad(row.getCell(5).getStringCellValue());
+					dni = CiudadanoChecker.checkDni(row.getCell(6).getStringCellValue());					
 					
-					try {
-						nombre = CiudadanoChecker.checkNombre(row.getCell(0).getStringCellValue());
-						apellidos = CiudadanoChecker.checkApellidos(row.getCell(1).getStringCellValue());
-						email = CiudadanoChecker.checkEmail(row.getCell(2).getStringCellValue());
-						fechaNacimiento = CiudadanoChecker.checkFechaNacimiento(row.getCell(3).getDateCellValue());
-						residencia = CiudadanoChecker.checkResidencia(row.getCell(4).getStringCellValue());
-						nacionalidad = CiudadanoChecker.checkNacionalidad(row.getCell(5).getStringCellValue());
-						dni = CiudadanoChecker.checkDni(row.getCell(6).getStringCellValue());					
-						
-						Ciudadano ciudadano = new Ciudadano(nombre, apellidos, email, fechaNacimiento, residencia, nacionalidad, dni);
-						listaCiudadanos.add(ciudadano);
-					} catch (BusinessException e) {
-						String error = "Error de lectura de los datos en la fila "+counter;
-						report.report(error, fichero, Level.ERROR);						
-					} catch (Exception e) {
-						String error = "Error de lectura de los datos en la fila "+counter;
-						report.report(error, fichero, Level.ERROR);						
-					}					
-				}				
-			} catch (FileNotFoundException e) {
-				String error = "No existe el fichero especificado";
-				report.report(error, fichero, Level.FATAL);				
-			} catch (IOException e) {
-				String error = "No se puede acceder al fichero especificado, puede que esté abierto";
-				report.report(error, fichero, Level.FATAL);					
-			} catch (Exception e) {				
-				String error = "Se ha producido un error irrecuperable";
-				report.report(error, fichero, Level.FATAL);	
-			}
-		}		
+					Ciudadano ciudadano = new Ciudadano(nombre, apellidos, email, fechaNacimiento, residencia, nacionalidad, dni);
+					listaCiudadanos.add(ciudadano);
+				} catch (BusinessException e) {
+					String error = "Error de lectura de los datos en la fila "+counter;
+					writeReport.report(error, fichero, Level.ERROR);						
+				} catch (Exception e) {
+					String error = "Error de lectura de los datos en la fila "+counter;
+					writeReport.report(error, fichero, Level.ERROR);						
+				}					
+			}				
+		} catch (FileNotFoundException e) {
+			String error = "No existe el fichero especificado";
+			writeReport.report(error, fichero, Level.FATAL);				
+		} catch (IOException e) {
+			String error = "No se puede acceder al fichero especificado, puede que esté abierto";
+			writeReport.report(error, fichero, Level.FATAL);					
+		} catch (Exception e) {				
+			String error = "Se ha producido un error irrecuperable";
+			writeReport.report(error, fichero, Level.FATAL);	
+		}
+				
 		return listaCiudadanos;
 	}
 	

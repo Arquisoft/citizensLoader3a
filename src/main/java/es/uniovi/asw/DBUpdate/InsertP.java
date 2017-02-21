@@ -2,15 +2,21 @@ package es.uniovi.asw.DBUpdate;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import es.uniovi.asw.ReportWriter.Level;
+import es.uniovi.asw.ReportWriter.WriteReport;
 import es.uniovi.asw.model.Ciudadano;
 import es.uniovi.asw.model.Usuario;
 import es.uniovi.asw.persistence.CiudadanoFinder;
 import es.uniovi.asw.persistence.util.Jpa;
 
+@Component
 public class InsertP implements Insert {
 
-	private WreportR report = new WreportR();
+	@Autowired
+	private WriteReport writeReport;
 	
 	@Override
 	public void insert(List<Ciudadano> listaCiudadanos, String fichero) {
@@ -24,7 +30,7 @@ public class InsertP implements Insert {
 			}
 			else {				
 				String error = "No se puede introducir el ciudadano con dni "+ c.getDni() + " porque ya está cargado en la base de datos";
-				report.report(error, fichero, Level.ERROR);
+				writeReport.report(error, fichero, Level.ERROR);
 			}
 		}
 	}

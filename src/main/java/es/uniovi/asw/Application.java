@@ -1,15 +1,11 @@
 package es.uniovi.asw;
 
-import java.util.List;
-
-import es.uniovi.asw.Parser.InsertR;
 import es.uniovi.asw.Parser.RList;
 import es.uniovi.asw.Parser.readers.ExcelReader;
 import es.uniovi.asw.Parser.readers.Reader;
 import es.uniovi.asw.Parser.writers.TXTWriter;
 import es.uniovi.asw.Parser.writers.WordWriter;
 import es.uniovi.asw.Parser.writers.Writer;
-import es.uniovi.asw.model.Ciudadano;
 import es.uniovi.asw.util.Console;
 
 public class Application {
@@ -56,16 +52,15 @@ public class Application {
 			rList = new RList();
 			rList.setReader(reader);
 			rList.setWriter(writer);
-			List<Ciudadano> lista = rList.read(fichero);
-			new InsertR().insert(lista, fichero);			
-		}
-			
+			rList.read(fichero);			
+		}			
 	}
 	
 	public static Reader comprobarReader (String fichero) {
 		if (fichero.split("\\.")[1].equals("xlsx")){
 			return new ExcelReader();
 		} 
+		//Segun tengamos más tipos de readers se añadirían aquí
 		return null;
 	}
 	
@@ -76,6 +71,7 @@ public class Application {
 		else if (formatoCorreo.equalsIgnoreCase("DOCX")) {
 			return new WordWriter();
 		}
+		//Según tengamos más tipo de writers se añadirían aquí
 		return null;
 	}
 }

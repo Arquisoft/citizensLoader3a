@@ -18,7 +18,7 @@ public class CommandExecutor<T> {
 			entityTransaction.commit();
 			return object;
 
-		} catch (PersistenceException | BusinessException e) {
+		} catch (BusinessException e) {
 			if (entityTransaction.isActive())
 				entityTransaction.rollback();
 			throw e;

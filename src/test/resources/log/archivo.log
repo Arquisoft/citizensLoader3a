@@ -4,3 +4,45 @@
 20 feb 2017 - 18:58:49 [FATAL] CitizensLogger - Se ha producido el siguiente error en el fichero test.xlsx: No se puede introducir el ciudadano con dni 19160962F porque ya está cargado en la base de datos
 20 feb 2017 - 18:58:49 [ERROR] CitizensLogger - Se ha producido el siguiente error en el fichero test.xlsx: No se puede introducir el ciudadano con dni 09940449X porque ya está cargado en la base de datos
 20 feb 2017 - 18:58:49 [FATAL] CitizensLogger - Se ha producido el siguiente error en el fichero test.xlsx: No se puede introducir el ciudadano con dni 09940449X porque ya está cargado en la base de datos
+21 feb 2017 - 11:08:53 [ERROR] CitizensLogger - Se ha producido el siguiente error en el fichero test.xlsx: No se puede introducir el ciudadano con dni 90500084Y porque ya está cargado en la base de datos
+21 feb 2017 - 11:08:53 [FATAL] CitizensLogger - Se ha producido el siguiente error en el fichero test.xlsx: No se puede introducir el ciudadano con dni 90500084Y porque ya está cargado en la base de datos
+21 feb 2017 - 11:08:53 [ERROR] CitizensLogger - Se ha producido el siguiente error en el fichero test.xlsx: No se puede introducir el ciudadano con dni 19160962F porque ya está cargado en la base de datos
+21 feb 2017 - 11:08:53 [FATAL] CitizensLogger - Se ha producido el siguiente error en el fichero test.xlsx: No se puede introducir el ciudadano con dni 19160962F porque ya está cargado en la base de datos
+21 feb 2017 - 11:08:53 [ERROR] CitizensLogger - Se ha producido el siguiente error en el fichero test.xlsx: No se puede introducir el ciudadano con dni 09940449X porque ya está cargado en la base de datos
+21 feb 2017 - 11:08:53 [FATAL] CitizensLogger - Se ha producido el siguiente error en el fichero test.xlsx: No se puede introducir el ciudadano con dni 09940449X porque ya está cargado en la base de datos
+21 feb 2017 - 11:20:19 [ERROR] CitizensLogger - Se ha producido el siguiente error en el fichero test.xlsx: No se puede introducir el ciudadano con dni 90500084Y porque ya está cargado en la base de datos
+21 feb 2017 - 11:20:19 [FATAL] CitizensLogger - Se ha producido el siguiente error en el fichero test.xlsx: No se puede introducir el ciudadano con dni 90500084Y porque ya está cargado en la base de datos
+21 feb 2017 - 11:20:19 [ERROR] CitizensLogger - Se ha producido el siguiente error en el fichero test.xlsx: No se puede introducir el ciudadano con dni 19160962F porque ya está cargado en la base de datos
+21 feb 2017 - 11:20:19 [FATAL] CitizensLogger - Se ha producido el siguiente error en el fichero test.xlsx: No se puede introducir el ciudadano con dni 19160962F porque ya está cargado en la base de datos
+21 feb 2017 - 11:20:19 [ERROR] CitizensLogger - Se ha producido el siguiente error en el fichero test.xlsx: No se puede introducir el ciudadano con dni 09940449X porque ya está cargado en la base de datos
+21 feb 2017 - 11:20:19 [FATAL] CitizensLogger - Se ha producido el siguiente error en el fichero test.xlsx: No se puede introducir el ciudadano con dni 09940449X porque ya está cargado en la base de datos
+21 feb 2017 - 11:22:47 [ERROR] CitizensLogger - Se ha producido el siguiente error en el fichero test.xlsx: No se puede introducir el ciudadano con dni 90500084Y porque ya está cargado en la base de datos
+21 feb 2017 - 11:22:47 [FATAL] CitizensLogger - Se ha producido el siguiente error en el fichero test.xlsx: No se puede introducir el ciudadano con dni 90500084Y porque ya está cargado en la base de datos
+21 feb 2017 - 11:22:47 [ERROR] CitizensLogger - Se ha producido el siguiente error en el fichero test.xlsx: No se puede introducir el ciudadano con dni 19160962F porque ya está cargado en la base de datos
+21 feb 2017 - 11:22:47 [FATAL] CitizensLogger - Se ha producido el siguiente error en el fichero test.xlsx: No se puede introducir el ciudadano con dni 19160962F porque ya está cargado en la base de datos
+21 feb 2017 - 11:22:47 [ERROR] CitizensLogger - Se ha producido el siguiente error en el fichero test.xlsx: No se puede introducir el ciudadano con dni 09940449X porque ya está cargado en la base de datos
+21 feb 2017 - 11:22:47 [FATAL] CitizensLogger - Se ha producido el siguiente error en el fichero test.xlsx: No se puede introducir el ciudadano con dni 09940449X porque ya está cargado en la base de datos
+21 feb 2017 - 12:10:36 [ERROR] CitizensLogger - Se ha producido el siguiente error en el fichero test.xlsx: No se puede introducir el ciudadano con dni 90500084Y porque ya está cargado en la base de datos
+21 feb 2017 - 12:10:36 [FATAL] CitizensLogger - Se ha producido el siguiente error en el fichero test.xlsx: No se puede introducir el ciudadano con dni 90500084Y porque ya está cargado en la base de datos
+21 feb 2017 - 12:10:36 [ERROR] CitizensLogger - Se ha producido el siguiente error en el fichero test.xlsx: No se puede introducir el ciudadano con dni 19160962F porque ya está cargado en la base de datos
+21 feb 2017 - 12:10:36 [FATAL] CitizensLogger - Se ha producido el siguiente error en el fichero test.xlsx: No se puede introducir el ciudadano con dni 19160962F porque ya está cargado en la base de datos
+21 feb 2017 - 12:10:36 [ERROR] CitizensLogger - Se ha producido el siguiente error en el fichero test.xlsx: No se puede introducir el ciudadano con dni 09940449X porque ya está cargado en la base de datos
+21 feb 2017 - 12:10:36 [FATAL] CitizensLogger - Se ha producido el siguiente error en el fichero test.xlsx: No se puede introducir el ciudadano con dni 09940449X porque ya está cargado en la base de datos
+21 feb 2017 - 14:30:33 [INFO ] util.Version - HV000001: Hibernate Validator 5.3.4.Final
+21 feb 2017 - 14:33:06 [INFO ] util.Version - HV000001: Hibernate Validator 5.3.4.Final
+21 feb 2017 - 14:40:51 [INFO ] util.Version - HV000001: Hibernate Validator 5.3.4.Final
+21 feb 2017 - 14:48:19 [INFO ] util.Version - HV000001: Hibernate Validator 5.3.4.Final
+21 feb 2017 - 14:49:55 [INFO ] util.Version - HV000001: Hibernate Validator 5.3.4.Final
+21 feb 2017 - 14:52:03 [INFO ] util.Version - HV000001: Hibernate Validator 5.3.4.Final
+21 feb 2017 - 14:54:00 [INFO ] util.Version - HV000001: Hibernate Validator 5.3.4.Final
+21 feb 2017 - 15:01:33 [INFO ] util.Version - HV000001: Hibernate Validator 5.3.4.Final
+21 feb 2017 - 15:06:22 [INFO ] util.Version - HV000001: Hibernate Validator 5.3.4.Final
+21 feb 2017 - 15:09:00 [INFO ] util.Version - HV000001: Hibernate Validator 5.3.4.Final
+21 feb 2017 - 15:14:03 [INFO ] util.Version - HV000001: Hibernate Validator 5.3.4.Final
+21 feb 2017 - 15:15:42 [INFO ] util.Version - HV000001: Hibernate Validator 5.3.4.Final
+21 feb 2017 - 15:18:32 [INFO ] util.Version - HV000001: Hibernate Validator 5.3.4.Final
+21 feb 2017 - 15:25:13 [INFO ] util.Version - HV000001: Hibernate Validator 5.3.4.Final
+21 feb 2017 - 15:29:55 [INFO ] util.Version - HV000001: Hibernate Validator 5.3.4.Final
+21 feb 2017 - 15:31:46 [INFO ] util.Version - HV000001: Hibernate Validator 5.3.4.Final
+21 feb 2017 - 15:32:57 [INFO ] util.Version - HV000001: Hibernate Validator 5.3.4.Final
+21 feb 2017 - 15:45:47 [INFO ] util.Version - HV000001: Hibernate Validator 5.3.4.Final
