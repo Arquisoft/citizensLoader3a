@@ -1,5 +1,6 @@
 package es.uniovi.asw;
 
+import es.uniovi.asw.DBUpdate.InsertP;
 import es.uniovi.asw.Parser.RList;
 import es.uniovi.asw.Parser.readers.ExcelReader;
 import es.uniovi.asw.Parser.readers.Reader;

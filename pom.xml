@@ -111,7 +111,13 @@
     		<groupId>org.springframework.boot</groupId>
     		<artifactId>spring-boot-starter-web</artifactId>
     		<version>1.5.1.RELEASE</version>
-		</dependency>
+    		<exclusions>
+    			<exclusion>
+    				<groupId>org.hibernate</groupId>
+    				<artifactId>hibernate-validator</artifactId>
+    			</exclusion>
+    		</exclusions>
+        </dependency>
 		
 	</dependencies>
 	
@@ -309,6 +315,19 @@
 				<artifactId>maven-pmd-plugin</artifactId>
 				<version>3.6</version>
 			</plugin>
+			
+			<plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>1.5.1.RELEASE</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin> 
 		</plugins>
 	</reporting>
 

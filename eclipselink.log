@@ -1,2 +1,6 @@
-[EL Info]: 2017-02-21 15:45:48.583--ServerSession(1419428140)--EclipseLink, version: Eclipse Persistence Services - 2.6.4.v20160829-44060b6
-[EL Info]: connection: 2017-02-21 15:45:48.993--ServerSession(1419428140)--/file:/C:/Users/Alberto Cortina/Documents/GitHub/citizensLoader3a/target/classes/_citizens login successful
+[EL Info]: 2017-02-21 17:17:01.637--ServerSession(1982468278)--EclipseLink, version: Eclipse Persistence Services - 2.6.4.v20160829-44060b6
+[EL Info]: connection: 2017-02-21 17:17:02.239--ServerSession(1982468278)--/file:/C:/Users/Alberto Cortina/Documents/GitHub/citizensLoader3a/target/classes/_citizens login successful
+[EL Fine]: sql: 2017-02-21 17:17:07.08--ServerSession(1982468278)--Connection(239902985)--SELECT ID, APELLIDOS, DNI, EMAIL, FECHANACIMIENTO, NACIONALIDAD, NOMBRE, RESIDENCIA FROM TCiudadanos WHERE (DNI = ?)
+	bind => [1 parameter bound]
+[EL Fine]: sql: 2017-02-21 17:17:07.153--ServerSession(1982468278)--Connection(239902985)--SELECT ID, CONTRASEÑA, USUARIO, CIUDADANO_ID FROM TUsuarios WHERE (CIUDADANO_ID = ?)
+	bind => [1 parameter bound]

@@ -40,7 +40,7 @@ public class RList implements ReadList {
 		this.fichero = fichero;
 		ciudadanos = reader.read(this.fichero);
 		crearUsuarios();
-		crearEmail();
+//		crearEmail();
 		insertarCiudadanos(ciudadanos, fichero);
 	}	
 
