@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import es.uniovi.asw.ReportWriter.Level;
+import es.uniovi.asw.ReportWriter.WreportP;
 import es.uniovi.asw.ReportWriter.WriteReport;
 import es.uniovi.asw.model.Ciudadano;
 import es.uniovi.asw.util.BusinessException;
@@ -25,7 +26,7 @@ import es.uniovi.asw.util.CiudadanoChecker;
 public class ExcelReader implements Reader {	
 	
 	@Autowired
-	private WriteReport writeReport;
+	private WriteReport writeReport = new WreportP();
 	
 	private final static String PATH = "src/test/resources/";
 	

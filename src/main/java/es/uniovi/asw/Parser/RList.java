@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import es.uniovi.asw.DBUpdate.Insert;
+import es.uniovi.asw.DBUpdate.InsertP;
 import es.uniovi.asw.Parser.readers.Reader;
 import es.uniovi.asw.Parser.writers.Writer;
 import es.uniovi.asw.business.command.Command;
@@ -20,7 +21,7 @@ import es.uniovi.asw.util.BusinessException;
 public class RList implements ReadList {
 
 	@Autowired
-	private Insert insert;
+	private Insert insert = new InsertP();
 	
 	private List<Ciudadano> ciudadanos;
 	private String fichero;

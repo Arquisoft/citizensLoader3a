@@ -52,3 +52,6 @@
 21 feb 2017 - 16:35:19 [INFO ] util.Version - HV000001: Hibernate Validator 5.3.4.Final
 21 feb 2017 - 16:40:14 [INFO ] util.Version - HV000001: Hibernate Validator 5.3.4.Final
 21 feb 2017 - 16:44:28 [INFO ] util.Version - HV000001: Hibernate Validator 5.3.4.Final
+21 feb 2017 - 19:05:09 [ERROR] CitizensLogger - Se ha producido el siguiente error en el fichero test.xlsx: No se puede introducir el ciudadano con dni 90500084Y porque ya está cargado en la base de datos
+21 feb 2017 - 19:05:09 [ERROR] CitizensLogger - Se ha producido el siguiente error en el fichero test.xlsx: No se puede introducir el ciudadano con dni 19160962F porque ya está cargado en la base de datos
+21 feb 2017 - 19:05:09 [ERROR] CitizensLogger - Se ha producido el siguiente error en el fichero test.xlsx: No se puede introducir el ciudadano con dni 09940449X porque ya está cargado en la base de datos

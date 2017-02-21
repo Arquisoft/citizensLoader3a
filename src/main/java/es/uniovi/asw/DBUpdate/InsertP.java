@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import es.uniovi.asw.ReportWriter.Level;
+import es.uniovi.asw.ReportWriter.WreportP;
 import es.uniovi.asw.ReportWriter.WriteReport;
 import es.uniovi.asw.model.Ciudadano;
 import es.uniovi.asw.model.Usuario;
@@ -16,7 +17,7 @@ import es.uniovi.asw.persistence.util.Jpa;
 public class InsertP implements Insert {
 
 	@Autowired
-	private WriteReport writeReport;
+	private WriteReport writeReport = new WreportP();
 	
 	@Override
 	public void insert(List<Ciudadano> listaCiudadanos, String fichero) {
