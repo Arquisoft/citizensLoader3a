@@ -1,14 +1,22 @@
-[EL Info]: 2017-02-22 16:58:24.334--ServerSession(1913999692)--EclipseLink, version: Eclipse Persistence Services - 2.6.4.v20160829-44060b6
-[EL Info]: connection: 2017-02-22 16:58:24.871--ServerSession(1913999692)--/file:/C:/Users/Pelayo/Desktop/Nueva carpeta/citizensLoader3a/target/classes/_citizens login successful
-[EL Fine]: sql: 2017-02-22 16:58:24.948--ServerSession(1913999692)--Connection(163048522)--SELECT ID, APELLIDOS, DNI, EMAIL, FECHANACIMIENTO, NACIONALIDAD, NOMBRE, RESIDENCIA FROM TCiudadanos WHERE (DNI = ?)
+[EL Info]: 2017-02-22 17:18:34.412--ServerSession(143357682)--EclipseLink, version: Eclipse Persistence Services - 2.6.4.v20160829-44060b6
+[EL Info]: connection: 2017-02-22 17:18:34.844--ServerSession(143357682)--/file:/C:/Users/Pelayo/Desktop/Nueva carpeta/citizensLoader3a/target/classes/_citizens login successful
+[EL Fine]: sql: 2017-02-22 17:18:34.893--ServerSession(143357682)--Connection(445554393)--SELECT ID, APELLIDOS, DNI, EMAIL, FECHANACIMIENTO, NACIONALIDAD, NOMBRE, RESIDENCIA FROM TCiudadanos WHERE (DNI = ?)
 	bind => [1 parameter bound]
-[EL Fine]: sql: 2017-02-22 16:58:24.972--ServerSession(1913999692)--Connection(163048522)--SELECT ID, CONTRASEÑA, USUARIO, CIUDADANO_ID FROM TUsuarios WHERE (CIUDADANO_ID = ?)
+[EL Fine]: sql: 2017-02-22 17:18:34.904--ServerSession(143357682)--Connection(445554393)--SELECT ID, CONTRASEÃ‘A, USUARIO, CIUDADANO_ID FROM TUsuarios WHERE (CIUDADANO_ID = ?)
 	bind => [1 parameter bound]
-[EL Fine]: sql: 2017-02-22 16:58:25.011--ServerSession(1913999692)--Connection(163048522)--SELECT ID, APELLIDOS, DNI, EMAIL, FECHANACIMIENTO, NACIONALIDAD, NOMBRE, RESIDENCIA FROM TCiudadanos WHERE (DNI = ?)
+[EL Fine]: sql: 2017-02-22 17:18:34.926--ServerSession(143357682)--Connection(445554393)--SELECT ID, APELLIDOS, DNI, EMAIL, FECHANACIMIENTO, NACIONALIDAD, NOMBRE, RESIDENCIA FROM TCiudadanos WHERE (DNI = ?)
 	bind => [1 parameter bound]
-[EL Fine]: sql: 2017-02-22 16:58:25.014--ServerSession(1913999692)--Connection(163048522)--SELECT ID, CONTRASEÑA, USUARIO, CIUDADANO_ID FROM TUsuarios WHERE (CIUDADANO_ID = ?)
+[EL Fine]: sql: 2017-02-22 17:18:34.927--ServerSession(143357682)--Connection(445554393)--SELECT ID, CONTRASEÃ‘A, USUARIO, CIUDADANO_ID FROM TUsuarios WHERE (CIUDADANO_ID = ?)
 	bind => [1 parameter bound]
-[EL Fine]: sql: 2017-02-22 16:58:25.019--ServerSession(1913999692)--Connection(163048522)--SELECT ID, APELLIDOS, DNI, EMAIL, FECHANACIMIENTO, NACIONALIDAD, NOMBRE, RESIDENCIA FROM TCiudadanos WHERE (DNI = ?)
+[EL Fine]: sql: 2017-02-22 17:18:34.929--ServerSession(143357682)--Connection(445554393)--SELECT ID, APELLIDOS, DNI, EMAIL, FECHANACIMIENTO, NACIONALIDAD, NOMBRE, RESIDENCIA FROM TCiudadanos WHERE (DNI = ?)
 	bind => [1 parameter bound]
-[EL Fine]: sql: 2017-02-22 16:58:25.021--ServerSession(1913999692)--Connection(163048522)--SELECT ID, CONTRASEÑA, USUARIO, CIUDADANO_ID FROM TUsuarios WHERE (CIUDADANO_ID = ?)
+[EL Fine]: sql: 2017-02-22 17:18:34.93--ServerSession(143357682)--Connection(445554393)--SELECT ID, CONTRASEÃ‘A, USUARIO, CIUDADANO_ID FROM TUsuarios WHERE (CIUDADANO_ID = ?)
+	bind => [1 parameter bound]
+[EL Fine]: sql: 2017-02-22 17:18:34.937--ServerSession(143357682)--Connection(445554393)--SELECT ID, APELLIDOS, DNI, EMAIL, FECHANACIMIENTO, NACIONALIDAD, NOMBRE, RESIDENCIA FROM TCiudadanos WHERE (DNI = ?)
+	bind => [1 parameter bound]
+[EL Fine]: sql: 2017-02-22 17:18:34.943--ServerSession(143357682)--Connection(445554393)--SELECT ID, APELLIDOS, DNI, EMAIL, FECHANACIMIENTO, NACIONALIDAD, NOMBRE, RESIDENCIA FROM TCiudadanos WHERE (DNI = ?)
+	bind => [1 parameter bound]
+[EL Fine]: sql: 2017-02-22 17:18:34.948--ServerSession(143357682)--Connection(445554393)--SELECT ID, APELLIDOS, DNI, EMAIL, FECHANACIMIENTO, NACIONALIDAD, NOMBRE, RESIDENCIA FROM TCiudadanos WHERE (DNI = ?)
+	bind => [1 parameter bound]
+[EL Fine]: sql: 2017-02-22 17:18:34.954--ServerSession(143357682)--Connection(445554393)--SELECT ID, APELLIDOS, DNI, EMAIL, FECHANACIMIENTO, NACIONALIDAD, NOMBRE, RESIDENCIA FROM TCiudadanos WHERE (DNI = ?)
 	bind => [1 parameter bound]
