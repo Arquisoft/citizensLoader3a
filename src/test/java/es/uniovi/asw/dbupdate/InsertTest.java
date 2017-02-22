@@ -1,21 +1,10 @@
 package es.uniovi.asw.dbupdate;
 
-import static org.junit.Assert.*;
 
-import org.junit.Test;
-
-import es.uniovi.asw.DBUpdate.DeleteP;
-import es.uniovi.asw.Parser.RList;
-import es.uniovi.asw.Parser.readers.ExcelReader;
-import es.uniovi.asw.business.command.Command;
-import es.uniovi.asw.business.command.CommandExecutor;
-import es.uniovi.asw.model.Ciudadano;
-import es.uniovi.asw.persistence.CiudadanoFinder;
-import es.uniovi.asw.util.BusinessException;
 
 public class InsertTest {
 	
-	private RList rList = new RList();
+	/*private RList rList = new RList();
 	DeleteP deleted =new DeleteP();
 	private Ciudadano c1;
 	private Ciudadano c2;
@@ -105,5 +94,5 @@ public class InsertTest {
 		}
 		
 		assertTrue(ciudInex == null);
-	}
+	}*/
 }
