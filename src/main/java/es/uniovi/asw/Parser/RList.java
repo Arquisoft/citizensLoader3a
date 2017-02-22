@@ -3,11 +3,8 @@ package es.uniovi.asw.Parser;
 import java.util.List;
 
 import org.apache.commons.lang.RandomStringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import es.uniovi.asw.DBUpdate.Insert;
-import es.uniovi.asw.DBUpdate.InsertP;
 import es.uniovi.asw.Parser.readers.Reader;
 import es.uniovi.asw.Parser.writers.Writer;
 import es.uniovi.asw.business.command.Command;
@@ -17,11 +14,9 @@ import es.uniovi.asw.model.Ciudadano;
 import es.uniovi.asw.model.Usuario;
 import es.uniovi.asw.util.BusinessException;
 
-@Component
 public class RList implements ReadList {
-
-	@Autowired
-	private Insert insert = new InsertP();
+	
+	private Insert insert = new InsertQ();
 	
 	private List<Ciudadano> ciudadanos;
 	private String fichero;
@@ -40,9 +35,10 @@ public class RList implements ReadList {
 	public void read(String fichero) {	
 		this.fichero = fichero;
 		ciudadanos = reader.read(this.fichero);
-		crearUsuarios();
-//		crearEmail();
-		insertarCiudadanos(ciudadanos, fichero);
+		crearUsuarios();		
+		List<Ciudadano> insertados = insertarCiudadanos(ciudadanos, fichero);
+		if (insertados != null)
+			crearEmail(insertados);
 	}	
 
 	private void crearUsuarios() {
@@ -62,22 +58,22 @@ public class RList implements ReadList {
 		return RandomStringUtils.randomAlphabetic(4) + RandomStringUtils.randomAlphanumeric(4);
 	}
 	
-	private void crearEmail() {
-		for(Ciudadano c: ciudadanos) {
+	private void crearEmail(List<Ciudadano> insertados) {
+		for(Ciudadano c: insertados) {
 			writer.write(c);
 		}		
 	}
 	
-	private void insertarCiudadanos(final List<Ciudadano> listaCiudadanos, final String fichero) {
+	private List<Ciudadano> insertarCiudadanos(final List<Ciudadano> listaCiudadanos, final String fichero) {
 		try {
-			new CommandExecutor<Void>().execute(new Command<Void>() {
+			new CommandExecutor<List<Ciudadano>>().execute(new Command<List<Ciudadano>>() {
 				@Override
-				public Void execute() throws BusinessException {
-					insert.insert(listaCiudadanos, fichero);					
-					return null;
+				public List<Ciudadano> execute() throws BusinessException {										
+					return insert.insert(listaCiudadanos, fichero);
 				}
 			});
 		} catch (BusinessException e) {
 		}
+		return null;
 	}
 }

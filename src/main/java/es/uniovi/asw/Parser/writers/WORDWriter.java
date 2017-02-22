@@ -12,7 +12,7 @@ import org.apache.poi.xwpf.usermodel.XWPFRun;
 import es.uniovi.asw.model.Ciudadano;
 import es.uniovi.asw.util.Console;
 
-public class WordWriter implements Writer {
+public class WORDWriter implements Writer {
 
 	private final static String PATH = "src/test/resources/emails/";	
 	
@@ -26,7 +26,7 @@ public class WordWriter implements Writer {
 		
 		try {
 			documento =  new XWPFDocument();
-			out = new FileOutputStream(new File(PATH+ciudadano.getUsuario().getUsuario()+".docx"));
+			out = new FileOutputStream(new File(PATH+ciudadano.getDni()+".docx"));
 			parrafo = documento.createParagraph();
 			parrafo.setAlignment(ParagraphAlignment.BOTH);
 			run = parrafo.createRun();

@@ -1,12 +1,24 @@
 package es.uniovi.asw.ReportWriter;
 
 import org.apache.log4j.Logger;
-import org.springframework.stereotype.Component;
 
-@Component
 public class WreportP implements WriteReport {
 
 	private static Logger log = Logger.getLogger("CitizensLogger");	
+	
+	private static final WriteReport INSTANCE = null;
+	
+	private WreportP() {		
+	}
+	
+	public static WriteReport getInstance () {
+		if (INSTANCE == null) {
+			return new WreportP();
+		}
+		else {
+			return INSTANCE;
+		}
+	}
 	
 	@Override
 	public void report(String error, String fichero, Level nivel) {
@@ -23,6 +35,7 @@ public class WreportP implements WriteReport {
 						break;
 			case FATAL: log.fatal("Se ha producido el siguiente error en el fichero "+ fichero +": " + error);
 						break;
+			default: break;
 		}		
 	}	
 }

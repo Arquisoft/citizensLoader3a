@@ -1,4 +1,4 @@
-package es.uniovi.asw.associations;
+package es.uniovi.asw.dbupdate;
 
 import static org.junit.Assert.*;
 
@@ -27,8 +27,9 @@ public class InsertTest {
 		//Metodo encargado de leer el fichero, de crear a los ciudadanos y de llamar al insert
 		rList.read("test.xlsx");
 		
-	/*	Ciudadano ciud1 = CiudadanoFinder.findByDni("90500084Y");
-		assertFalse(ciud1 == null);*/
+		
+		Ciudadano ciud1 = CiudadanoFinder.findByDni("90500084Y");
+		assertFalse(ciud1 == null);
 	}
 
 }

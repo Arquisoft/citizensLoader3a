@@ -1,4 +1,4 @@
-package es.uniovi.asw.associations;
+package es.uniovi.asw.parser;
 
 import static org.junit.Assert.*;
 

@@ -13,7 +13,7 @@ public class TXTWriter implements Writer {
 	@Override
 	public void write(Ciudadano ciudadano) {		
 		BufferedWriter bw = null;
-		String direccion = PATH + ciudadano.getUsuario().getUsuario() + ".txt";
+		String direccion = PATH + ciudadano.getDni() + ".txt";
 		try{
 			bw = new BufferedWriter(new FileWriter(direccion));
 			bw.write("\n");

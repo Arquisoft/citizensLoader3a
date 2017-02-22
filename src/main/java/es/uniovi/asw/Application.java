@@ -1,16 +1,16 @@
 package es.uniovi.asw;
 
-import es.uniovi.asw.DBUpdate.InsertP;
 import es.uniovi.asw.Parser.RList;
 import es.uniovi.asw.Parser.readers.ExcelReader;
 import es.uniovi.asw.Parser.readers.Reader;
+import es.uniovi.asw.Parser.writers.PDFWriter;
 import es.uniovi.asw.Parser.writers.TXTWriter;
-import es.uniovi.asw.Parser.writers.WordWriter;
+import es.uniovi.asw.Parser.writers.WORDWriter;
 import es.uniovi.asw.Parser.writers.Writer;
 import es.uniovi.asw.util.Console;
 
-public class Application {
-
+public class Application {	
+	
 	public static void main (String[] args){		
 		
 		RList rList;
@@ -37,12 +37,12 @@ public class Application {
 		
 		//Para coger un formato correcto de correo
 		do {
-			Console.println("Introduzca el formato en el que desea que se le envie los correos a los usuarios (txt, docx): ");
+			Console.println("Introduzca el formato en el que desea que se le envie los correos a los usuarios (txt, docx, pdf): ");
 			formatoCorreo = Console.readString();
 			writer = comprobarWriter(formatoCorreo);
 			if (writer == null) {
 				Console.print("Formato de correo incorrecto, recuerde que el formato del correo debe ser"
-						+ " alguno de los siguientes: txt, docx\n");
+						+ " alguno de los siguientes: txt, docx, pdf\n");
 			}
 			
 		} while (writer == null);
@@ -50,10 +50,10 @@ public class Application {
 		
 		//Para ejecutar la aplicación
 		if (reader != null && writer != null) {
-			rList = new RList();
+			rList = new RList();			
 			rList.setReader(reader);
 			rList.setWriter(writer);
-			rList.read(fichero);			
+			rList.read(fichero);		
 		}			
 	}
 	
@@ -70,7 +70,10 @@ public class Application {
 			return new TXTWriter();
 		}
 		else if (formatoCorreo.equalsIgnoreCase("DOCX")) {
-			return new WordWriter();
+			return new WORDWriter();
+		}
+		else if (formatoCorreo.equalsIgnoreCase("PDF")) {
+			return new PDFWriter();
 		}
 		//Según tengamos más tipo de writers se añadirían aquí
 		return null;

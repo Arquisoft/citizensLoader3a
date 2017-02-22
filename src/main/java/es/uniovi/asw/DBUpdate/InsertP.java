@@ -1,26 +1,35 @@
 package es.uniovi.asw.DBUpdate;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
 import es.uniovi.asw.ReportWriter.Level;
-import es.uniovi.asw.ReportWriter.WreportP;
 import es.uniovi.asw.ReportWriter.WriteReport;
 import es.uniovi.asw.model.Ciudadano;
 import es.uniovi.asw.model.Usuario;
 import es.uniovi.asw.persistence.CiudadanoFinder;
 import es.uniovi.asw.persistence.util.Jpa;
 
-@Component
 public class InsertP implements Insert {
 
-	@Autowired
-	private WriteReport writeReport = new WreportP();
+	private WriteReport writeReport = new WreportR();	
 	
+	private final static Insert INSTANCE = null;
+	
+	private InsertP(){		
+	}
+	
+	public static Insert getInstance() {
+		if (INSTANCE == null) {
+			return new InsertP();
+		}
+		else {
+			return INSTANCE;
+		}
+	}
 	@Override
-	public void insert(List<Ciudadano> listaCiudadanos, String fichero) {
+	public List<Ciudadano> insert(List<Ciudadano> listaCiudadanos, String fichero) {
+		List<Ciudadano> insertados = new ArrayList<Ciudadano>();
 		for(Ciudadano c: listaCiudadanos) {
 			Ciudadano aux = CiudadanoFinder.findByDni(c.getDni());
 			
@@ -28,11 +37,13 @@ public class InsertP implements Insert {
 				Usuario ususario = c.getUsuario();
 				Jpa.getManager().persist(c);
 				Jpa.getManager().persist(ususario);
+				insertados.add(c);
 			}
 			else {				
 				String error = "No se puede introducir el ciudadano con dni "+ c.getDni() + " porque ya está cargado en la base de datos";
 				writeReport.report(error, fichero, Level.ERROR);
 			}
 		}
+		return insertados;
 	}
 }
