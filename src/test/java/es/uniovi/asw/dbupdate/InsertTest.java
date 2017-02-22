@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import es.uniovi.asw.DBUpdate.DeleteP;
 import es.uniovi.asw.Parser.RList;
 import es.uniovi.asw.Parser.readers.ExcelReader;
 import es.uniovi.asw.business.command.Command;
@@ -15,6 +16,7 @@ import es.uniovi.asw.util.BusinessException;
 public class InsertTest {
 	
 	private RList rList = new RList();
+	DeleteP deleted =new DeleteP();
 	private Ciudadano c1;
 	private Ciudadano c2;
 	private Ciudadano c3;
@@ -42,6 +44,7 @@ public class InsertTest {
 				@Override
 				public Void execute() throws BusinessException {
 					ciud1 = CiudadanoFinder.findByDni("90500084Y");
+					deleted.delete(ciud1);
 					return null;
 				}
 			});
@@ -59,6 +62,7 @@ public class InsertTest {
 				@Override
 				public Void execute() throws BusinessException {
 					ciud2 = CiudadanoFinder.findByDni("19160962F");
+					deleted.delete(ciud2);
 					return null;
 				}
 			});
@@ -76,6 +80,7 @@ public class InsertTest {
 				@Override
 				public Void execute() throws BusinessException {
 					ciud3 = CiudadanoFinder.findByDni("09940449X");
+					deleted.delete(ciud3);
 					return null;
 				}
 			});

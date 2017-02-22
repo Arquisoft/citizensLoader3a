@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.List;
 
+import org.junit.Before;
 import org.junit.Test;
 import es.uniovi.asw.Parser.readers.ExcelReader;
 import es.uniovi.asw.Parser.readers.Reader;
@@ -16,7 +17,7 @@ public class ReadTest {
 	private Ciudadano c2;
 	private Ciudadano c3;
 
-	@Test
+	@Before
 	public void testReader() {
 		reader = new ExcelReader();
 		c1 = new Ciudadano("Juan", "Torres Pardo", "juan@example.com", null, null, "Español", "90500084Y");
@@ -43,5 +44,26 @@ public class ReadTest {
 		assertFalse(c1.equals(c2));
 		assertFalse(c1.equals(c3));
 		assertFalse(c2.equals(c3));
+	}
+	
+	@Test
+	public void testReadEmpty() {
+		List<Ciudadano> ciudadanos = new ExcelReader().read("src/test/resources/testEmpty.xlsx");
+		
+		assertEquals(true, ciudadanos.isEmpty());
+	}
+	
+	@Test
+	public void testFileNotFound() {
+		List<Ciudadano> ciudadanos = new ExcelReader().read("src/test/resources/notFound.xlsx");
+		
+		assertEquals(true, ciudadanos.isEmpty());
+	}
+	
+	@Test
+	public void testFileNotXlsx() {
+		List<Ciudadano> ciudadanos = new ExcelReader().read("src/test/resources/test.txt");
+		
+		assertEquals(true, ciudadanos.isEmpty());
 	}
 }

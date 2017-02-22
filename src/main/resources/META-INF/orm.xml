@@ -8,10 +8,11 @@
 	<!-- Ciudadano queries -->  
  	<named-query name="Ciudadano.findByDni">
 		<query>Select c From Ciudadano c Where c.dni = ?1</query>
-	</named-query>	
+	</named-query>
 	
 
 	<!-- Usuario queries -->
-
-
+	<named-query name="Usuario.findByUserAndPassword">
+		<query>Select u From Usuario u Where u.usuario = ?1 and u.contraseña = ?2</query>
+	</named-query>	
 </entity-mappings>
