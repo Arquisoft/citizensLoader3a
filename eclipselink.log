@@ -1,46 +1,46 @@
-[EL Info]: 2017-02-22 19:29:35.807--ServerSession(501341601)--EclipseLink, version: Eclipse Persistence Services - 2.6.4.v20160829-44060b6
-[EL Info]: connection: 2017-02-22 19:29:36.289--ServerSession(501341601)--/file:/C:/Users/Pelayo/Desktop/Nueva carpeta/citizensLoader3a/target/classes/_citizens login successful
-[EL Fine]: sql: 2017-02-22 19:29:36.34--ServerSession(501341601)--Connection(1009574362)--SELECT ID, APELLIDOS, DNI, EMAIL, FECHANACIMIENTO, NACIONALIDAD, NOMBRE, RESIDENCIA FROM TCiudadanos WHERE (DNI = ?)
+[EL Info]: 2017-02-22 22:20:28.08--ServerSession(619477687)--EclipseLink, version: Eclipse Persistence Services - 2.6.4.v20160829-44060b6
+[EL Info]: connection: 2017-02-22 22:20:28.564--ServerSession(619477687)--/file:/C:/Users/Pelayo/Desktop/prueba/citizensLoader3a/target/classes/_citizens login successful
+[EL Fine]: sql: 2017-02-22 22:20:28.625--ServerSession(619477687)--Connection(1445750758)--SELECT ID, APELLIDOS, DNI, EMAIL, FECHANACIMIENTO, NACIONALIDAD, NOMBRE, RESIDENCIA FROM TCiudadanos WHERE (DNI = ?)
 	bind => [1 parameter bound]
-[EL Fine]: sql: 2017-02-22 19:29:36.357--ClientSession(227588555)--Connection(1009574362)--INSERT INTO TCiudadanos (APELLIDOS, DNI, EMAIL, FECHANACIMIENTO, NACIONALIDAD, NOMBRE, RESIDENCIA) VALUES (?, ?, ?, ?, ?, ?, ?)
+[EL Fine]: sql: 2017-02-22 22:20:28.647--ClientSession(38936890)--Connection(1445750758)--INSERT INTO TCiudadanos (APELLIDOS, DNI, EMAIL, FECHANACIMIENTO, NACIONALIDAD, NOMBRE, RESIDENCIA) VALUES (?, ?, ?, ?, ?, ?, ?)
 	bind => [7 parameters bound]
-[EL Fine]: sql: 2017-02-22 19:29:36.359--ClientSession(227588555)--Connection(1009574362)--CALL IDENTITY()
-[EL Fine]: sql: 2017-02-22 19:29:36.363--ClientSession(227588555)--Connection(1009574362)--INSERT INTO TUsuarios (CONTRASEÑA, USUARIO, CIUDADANO_ID) VALUES (?, ?, ?)
+[EL Fine]: sql: 2017-02-22 22:20:28.649--ClientSession(38936890)--Connection(1445750758)--CALL IDENTITY()
+[EL Fine]: sql: 2017-02-22 22:20:28.655--ClientSession(38936890)--Connection(1445750758)--INSERT INTO TUsuarios (CONTRASEÑA, USUARIO, CIUDADANO_ID) VALUES (?, ?, ?)
 	bind => [3 parameters bound]
-[EL Fine]: sql: 2017-02-22 19:29:36.364--ClientSession(227588555)--Connection(1009574362)--CALL IDENTITY()
-[EL Fine]: sql: 2017-02-22 19:29:36.366--ClientSession(227588555)--Connection(1009574362)--SELECT ID, APELLIDOS, DNI, EMAIL, FECHANACIMIENTO, NACIONALIDAD, NOMBRE, RESIDENCIA FROM TCiudadanos WHERE (DNI = ?)
+[EL Fine]: sql: 2017-02-22 22:20:28.656--ClientSession(38936890)--Connection(1445750758)--CALL IDENTITY()
+[EL Fine]: sql: 2017-02-22 22:20:28.658--ClientSession(38936890)--Connection(1445750758)--SELECT ID, APELLIDOS, DNI, EMAIL, FECHANACIMIENTO, NACIONALIDAD, NOMBRE, RESIDENCIA FROM TCiudadanos WHERE (DNI = ?)
 	bind => [1 parameter bound]
-[EL Fine]: sql: 2017-02-22 19:29:36.368--ClientSession(227588555)--Connection(1009574362)--INSERT INTO TCiudadanos (APELLIDOS, DNI, EMAIL, FECHANACIMIENTO, NACIONALIDAD, NOMBRE, RESIDENCIA) VALUES (?, ?, ?, ?, ?, ?, ?)
+[EL Fine]: sql: 2017-02-22 22:20:28.661--ClientSession(38936890)--Connection(1445750758)--INSERT INTO TCiudadanos (APELLIDOS, DNI, EMAIL, FECHANACIMIENTO, NACIONALIDAD, NOMBRE, RESIDENCIA) VALUES (?, ?, ?, ?, ?, ?, ?)
 	bind => [7 parameters bound]
-[EL Fine]: sql: 2017-02-22 19:29:36.369--ClientSession(227588555)--Connection(1009574362)--CALL IDENTITY()
-[EL Fine]: sql: 2017-02-22 19:29:36.37--ClientSession(227588555)--Connection(1009574362)--INSERT INTO TUsuarios (CONTRASEÑA, USUARIO, CIUDADANO_ID) VALUES (?, ?, ?)
+[EL Fine]: sql: 2017-02-22 22:20:28.663--ClientSession(38936890)--Connection(1445750758)--CALL IDENTITY()
+[EL Fine]: sql: 2017-02-22 22:20:28.664--ClientSession(38936890)--Connection(1445750758)--INSERT INTO TUsuarios (CONTRASEÑA, USUARIO, CIUDADANO_ID) VALUES (?, ?, ?)
 	bind => [3 parameters bound]
-[EL Fine]: sql: 2017-02-22 19:29:36.371--ClientSession(227588555)--Connection(1009574362)--CALL IDENTITY()
-[EL Fine]: sql: 2017-02-22 19:29:36.372--ClientSession(227588555)--Connection(1009574362)--SELECT ID, APELLIDOS, DNI, EMAIL, FECHANACIMIENTO, NACIONALIDAD, NOMBRE, RESIDENCIA FROM TCiudadanos WHERE (DNI = ?)
+[EL Fine]: sql: 2017-02-22 22:20:28.665--ClientSession(38936890)--Connection(1445750758)--CALL IDENTITY()
+[EL Fine]: sql: 2017-02-22 22:20:28.666--ClientSession(38936890)--Connection(1445750758)--SELECT ID, APELLIDOS, DNI, EMAIL, FECHANACIMIENTO, NACIONALIDAD, NOMBRE, RESIDENCIA FROM TCiudadanos WHERE (DNI = ?)
 	bind => [1 parameter bound]
-[EL Fine]: sql: 2017-02-22 19:29:36.375--ClientSession(227588555)--Connection(1009574362)--INSERT INTO TCiudadanos (APELLIDOS, DNI, EMAIL, FECHANACIMIENTO, NACIONALIDAD, NOMBRE, RESIDENCIA) VALUES (?, ?, ?, ?, ?, ?, ?)
+[EL Fine]: sql: 2017-02-22 22:20:28.669--ClientSession(38936890)--Connection(1445750758)--INSERT INTO TCiudadanos (APELLIDOS, DNI, EMAIL, FECHANACIMIENTO, NACIONALIDAD, NOMBRE, RESIDENCIA) VALUES (?, ?, ?, ?, ?, ?, ?)
 	bind => [7 parameters bound]
-[EL Fine]: sql: 2017-02-22 19:29:36.376--ClientSession(227588555)--Connection(1009574362)--CALL IDENTITY()
-[EL Fine]: sql: 2017-02-22 19:29:36.377--ClientSession(227588555)--Connection(1009574362)--INSERT INTO TUsuarios (CONTRASEÑA, USUARIO, CIUDADANO_ID) VALUES (?, ?, ?)
+[EL Fine]: sql: 2017-02-22 22:20:28.671--ClientSession(38936890)--Connection(1445750758)--CALL IDENTITY()
+[EL Fine]: sql: 2017-02-22 22:20:28.673--ClientSession(38936890)--Connection(1445750758)--INSERT INTO TUsuarios (CONTRASEÑA, USUARIO, CIUDADANO_ID) VALUES (?, ?, ?)
 	bind => [3 parameters bound]
-[EL Fine]: sql: 2017-02-22 19:29:36.378--ClientSession(227588555)--Connection(1009574362)--CALL IDENTITY()
-[EL Fine]: sql: 2017-02-22 19:29:36.392--ServerSession(501341601)--Connection(1009574362)--SELECT ID, APELLIDOS, DNI, EMAIL, FECHANACIMIENTO, NACIONALIDAD, NOMBRE, RESIDENCIA FROM TCiudadanos WHERE (DNI = ?)
+[EL Fine]: sql: 2017-02-22 22:20:28.674--ClientSession(38936890)--Connection(1445750758)--CALL IDENTITY()
+[EL Fine]: sql: 2017-02-22 22:20:28.692--ServerSession(619477687)--Connection(1445750758)--SELECT ID, APELLIDOS, DNI, EMAIL, FECHANACIMIENTO, NACIONALIDAD, NOMBRE, RESIDENCIA FROM TCiudadanos WHERE (DNI = ?)
 	bind => [1 parameter bound]
-[EL Fine]: sql: 2017-02-22 19:29:36.396--ClientSession(1910062360)--Connection(1009574362)--DELETE FROM TUsuarios WHERE (ID = ?)
+[EL Fine]: sql: 2017-02-22 22:20:28.696--ClientSession(729384919)--Connection(1445750758)--DELETE FROM TUsuarios WHERE (ID = ?)
 	bind => [1 parameter bound]
-[EL Fine]: sql: 2017-02-22 19:29:36.398--ClientSession(1910062360)--Connection(1009574362)--DELETE FROM TCiudadanos WHERE (ID = ?)
+[EL Fine]: sql: 2017-02-22 22:20:28.698--ClientSession(729384919)--Connection(1445750758)--DELETE FROM TCiudadanos WHERE (ID = ?)
 	bind => [1 parameter bound]
-[EL Fine]: sql: 2017-02-22 19:29:36.4--ServerSession(501341601)--Connection(1009574362)--SELECT ID, APELLIDOS, DNI, EMAIL, FECHANACIMIENTO, NACIONALIDAD, NOMBRE, RESIDENCIA FROM TCiudadanos WHERE (DNI = ?)
+[EL Fine]: sql: 2017-02-22 22:20:28.701--ServerSession(619477687)--Connection(1445750758)--SELECT ID, APELLIDOS, DNI, EMAIL, FECHANACIMIENTO, NACIONALIDAD, NOMBRE, RESIDENCIA FROM TCiudadanos WHERE (DNI = ?)
 	bind => [1 parameter bound]
-[EL Fine]: sql: 2017-02-22 19:29:36.404--ClientSession(2064160194)--Connection(1009574362)--DELETE FROM TUsuarios WHERE (ID = ?)
+[EL Fine]: sql: 2017-02-22 22:20:28.703--ClientSession(1100679001)--Connection(1445750758)--DELETE FROM TUsuarios WHERE (ID = ?)
 	bind => [1 parameter bound]
-[EL Fine]: sql: 2017-02-22 19:29:36.406--ClientSession(2064160194)--Connection(1009574362)--DELETE FROM TCiudadanos WHERE (ID = ?)
+[EL Fine]: sql: 2017-02-22 22:20:28.704--ClientSession(1100679001)--Connection(1445750758)--DELETE FROM TCiudadanos WHERE (ID = ?)
 	bind => [1 parameter bound]
-[EL Fine]: sql: 2017-02-22 19:29:36.409--ServerSession(501341601)--Connection(1009574362)--SELECT ID, APELLIDOS, DNI, EMAIL, FECHANACIMIENTO, NACIONALIDAD, NOMBRE, RESIDENCIA FROM TCiudadanos WHERE (DNI = ?)
+[EL Fine]: sql: 2017-02-22 22:20:28.707--ServerSession(619477687)--Connection(1445750758)--SELECT ID, APELLIDOS, DNI, EMAIL, FECHANACIMIENTO, NACIONALIDAD, NOMBRE, RESIDENCIA FROM TCiudadanos WHERE (DNI = ?)
 	bind => [1 parameter bound]
-[EL Fine]: sql: 2017-02-22 19:29:36.411--ClientSession(178768460)--Connection(1009574362)--DELETE FROM TUsuarios WHERE (ID = ?)
+[EL Fine]: sql: 2017-02-22 22:20:28.709--ClientSession(1522179722)--Connection(1445750758)--DELETE FROM TUsuarios WHERE (ID = ?)
 	bind => [1 parameter bound]
-[EL Fine]: sql: 2017-02-22 19:29:36.412--ClientSession(178768460)--Connection(1009574362)--DELETE FROM TCiudadanos WHERE (ID = ?)
+[EL Fine]: sql: 2017-02-22 22:20:28.71--ClientSession(1522179722)--Connection(1445750758)--DELETE FROM TCiudadanos WHERE (ID = ?)
 	bind => [1 parameter bound]
-[EL Fine]: sql: 2017-02-22 19:29:36.414--ServerSession(501341601)--Connection(1009574362)--SELECT ID, APELLIDOS, DNI, EMAIL, FECHANACIMIENTO, NACIONALIDAD, NOMBRE, RESIDENCIA FROM TCiudadanos WHERE (DNI = ?)
+[EL Fine]: sql: 2017-02-22 22:20:28.713--ServerSession(619477687)--Connection(1445750758)--SELECT ID, APELLIDOS, DNI, EMAIL, FECHANACIMIENTO, NACIONALIDAD, NOMBRE, RESIDENCIA FROM TCiudadanos WHERE (DNI = ?)
 	bind => [1 parameter bound]
