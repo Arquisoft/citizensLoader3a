@@ -23,7 +23,7 @@ public class LoadUsers {
 		String formatoCorreo;
 	
 		
-		if(args.length==0 || args[0].equals("--help")){
+		if(args.length ==0 || args[0].equals("--help")){
 			mostrarAyuda();
 		}
 		else if(args[0].equals("info")){
