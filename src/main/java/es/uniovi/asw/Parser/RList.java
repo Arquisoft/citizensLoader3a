@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.apache.commons.lang.RandomStringUtils;
 
-import es.uniovi.asw.DBUpdate.Insert;
 import es.uniovi.asw.Parser.readers.Reader;
 import es.uniovi.asw.Parser.writers.Writer;
 import es.uniovi.asw.business.command.Command;
@@ -16,9 +15,10 @@ import es.uniovi.asw.util.BusinessException;
 
 public class RList implements ReadList {
 	
-	private Insert insert = new InsertQ();
+	private InsertQ insert = new InsertQ();
 	
 	private List<Ciudadano> ciudadanos;
+	private List<Ciudadano> insertados;
 	private String fichero;
 	private Reader reader;
 	private Writer writer;	
@@ -36,9 +36,9 @@ public class RList implements ReadList {
 		this.fichero = fichero;
 		ciudadanos = reader.read(this.fichero);
 		crearUsuarios();		
-		List<Ciudadano> insertados = insertarCiudadanos(ciudadanos, fichero);
-		if (insertados != null)
-			crearEmail(insertados);
+		insertarCiudadanos(ciudadanos, fichero);
+		if (this.insertados != null)
+			crearEmail(this.insertados);		
 	}	
 
 	private void crearUsuarios() {
@@ -64,16 +64,17 @@ public class RList implements ReadList {
 		}		
 	}
 	
-	private List<Ciudadano> insertarCiudadanos(final List<Ciudadano> listaCiudadanos, final String fichero) {
+	private Void insertarCiudadanos(final List<Ciudadano> listaCiudadanos, final String fichero) {		
 		try {
-			new CommandExecutor<List<Ciudadano>>().execute(new Command<List<Ciudadano>>() {
+			new CommandExecutor<Void>().execute(new Command<Void>() {
 				@Override
-				public List<Ciudadano> execute() throws BusinessException {										
-					return insert.insert(listaCiudadanos, fichero);
+				public Void execute() throws BusinessException {										
+					insertados = insert.insert(listaCiudadanos, fichero);
+					return null;					
 				}
 			});
 		} catch (BusinessException e) {
 		}
-		return null;
+		return null;		
 	}
 }

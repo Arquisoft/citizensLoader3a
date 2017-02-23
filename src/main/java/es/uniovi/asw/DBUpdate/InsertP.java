@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import es.uniovi.asw.ReportWriter.Level;
-import es.uniovi.asw.ReportWriter.WriteReport;
 import es.uniovi.asw.model.Ciudadano;
 import es.uniovi.asw.model.Usuario;
 import es.uniovi.asw.persistence.CiudadanoFinder;
@@ -12,14 +11,14 @@ import es.uniovi.asw.persistence.util.Jpa;
 
 public class InsertP implements Insert {
 
-	private WriteReport writeReport = new WreportR();	
+	private WreportR writeReport = new WreportR();	
 	
-	private final static Insert INSTANCE = null;
+	private final static InsertP INSTANCE = null;
 	
 	private InsertP(){		
 	}
 	
-	public static Insert getInstance() {
+	public static InsertP getInstance() {
 		if (INSTANCE == null) {
 			return new InsertP();
 		}

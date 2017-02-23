@@ -14,7 +14,7 @@ import es.uniovi.asw.util.Console;
 
 public class WORDWriter implements Writer {
 
-	private final static String PATH = "src/test/resources/emails/";	
+	private final static String PATH = "src/main/resources/emails/";	
 	
 	@SuppressWarnings("resource")
 	@Override

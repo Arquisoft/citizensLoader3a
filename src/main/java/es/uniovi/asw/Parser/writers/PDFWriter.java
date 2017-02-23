@@ -13,7 +13,7 @@ import es.uniovi.asw.model.Ciudadano;
 
 public class PDFWriter implements Writer {
 	
-	private final static String PATH = "src/test/resources/emails/";
+	private final static String PATH = "src/main/resources/emails/";
 
 	@SuppressWarnings("unused")
 	@Override

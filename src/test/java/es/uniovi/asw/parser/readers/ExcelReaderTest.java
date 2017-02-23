@@ -1,28 +1,33 @@
-package es.uniovi.asw.parser;
+package es.uniovi.asw.parser.readers;
 
 import static org.junit.Assert.*;
 
 import java.util.List;
 
+import org.junit.Before;
 import org.junit.Test;
+
 import es.uniovi.asw.Parser.readers.ExcelReader;
 import es.uniovi.asw.Parser.readers.Reader;
 import es.uniovi.asw.model.Ciudadano;
 
-public class ReadTest {
-	
-	private Reader reader;
+public class ExcelReaderTest {
+
 	private Ciudadano c1;
 	private Ciudadano c2;
 	private Ciudadano c3;
+	private Reader reader;
 
-	@Test
-	public void testReader() {
-		reader = new ExcelReader();
+	@Before
+	public void setUp() {
 		c1 = new Ciudadano("Juan", "Torres Pardo", "juan@example.com", null, null, "Español", "90500084Y");
 		c2 = new Ciudadano("Luis", "López Fernando", "luis@example.com", null, null, "Español", "19160962F");
 		c3 = new Ciudadano("Ana", "Torres Pardo", "ana@example.com", null, null, "Francés", "09940449X");
-		
+		reader = new ExcelReader();
+	}
+	
+	@Test
+	public void testReader() {		
 		List<Ciudadano> lista = reader.read("test.xlsx");
 		
 		//Compruebo ciudadano 1
@@ -43,5 +48,26 @@ public class ReadTest {
 		assertFalse(c1.equals(c2));
 		assertFalse(c1.equals(c3));
 		assertFalse(c2.equals(c3));
+	}
+	
+	@Test
+	public void testReadEmpty() {
+		List<Ciudadano> ciudadanos = reader.read("testEmpty.xlsx");
+		
+		assertEquals(true, ciudadanos.isEmpty());
+	}
+	
+	@Test
+	public void testFileNotFound() {
+		List<Ciudadano> ciudadanos = reader.read("notFound.xlsx");
+		
+		assertEquals(true, ciudadanos.isEmpty());
+	}
+	
+	@Test
+	public void testFileNotXlsx() {
+		List<Ciudadano> ciudadanos = reader.read("test.txt");
+		
+		assertEquals(true, ciudadanos.isEmpty());
 	}
 }

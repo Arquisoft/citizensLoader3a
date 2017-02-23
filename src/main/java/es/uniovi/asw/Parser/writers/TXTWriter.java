@@ -8,7 +8,7 @@ import es.uniovi.asw.model.Ciudadano;
 
 public class TXTWriter implements Writer {
 
-	private final static String PATH = "src/test/resources/emails/";
+	private final static String PATH = "src/main/resources/emails/";
 	
 	@Override
 	public void write(Ciudadano ciudadano) {		

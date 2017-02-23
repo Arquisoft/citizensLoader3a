@@ -325,8 +325,59 @@
 			<timezone>2</timezone>
 			<properties />
 		</developer>
+		
+		<developer>
+			<id>AlbertoCortina</id>
+			<name>Alberto Cortina Eduarte</name>
+			<email>UO245930@uniovi.es</email>
+			<organization>University of Oviedo</organization>
+			<organizationUrl>http://www.uniovi.es</organizationUrl>
+			<roles>				
+				<role>Developer</role>
+			</roles>
+			<timezone>2</timezone>
+			<properties />
+		</developer>
+		
+		<developer>
+			<id>PelayoAlvarez</id>
+			<name>Pelayo Álvarez García</name>
+			<email>@uniovi.es</email>
+			<organization>University of Oviedo</organization>
+			<organizationUrl>http://www.uniovi.es</organizationUrl>
+			<roles>				
+				<role>Developer</role>
+			</roles>
+			<timezone>2</timezone>
+			<properties />
+		</developer>
+		
+		<developer>
+			<id>MaVic96</id>
+			<name>Víctor Manuel Chávez García</name>
+			<email>@uniovi.es</email>
+			<organization>University of Oviedo</organization>
+			<organizationUrl>http://www.uniovi.es</organizationUrl>
+			<roles>				
+				<role>Developer</role>
+			</roles>
+			<timezone>2</timezone>
+			<properties />
+		</developer>
+		
+		<developer>
+			<id>robalvamenen</id>
+			<name>Roberto Álvarez Menéndez</name>
+			<email>@uniovi.es</email>
+			<organization>University of Oviedo</organization>
+			<organizationUrl>http://www.uniovi.es</organizationUrl>
+			<roles>				
+				<role>Developer</role>
+			</roles>
+			<timezone>2</timezone>
+			<properties />
+		</developer>			
 	</developers>
-
 
 	<organization>
 		<name>University of Oviedo</name>

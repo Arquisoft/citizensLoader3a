@@ -6,12 +6,12 @@ public class WreportP implements WriteReport {
 
 	private static Logger log = Logger.getLogger("CitizensLogger");	
 	
-	private static final WriteReport INSTANCE = null;
+	private static final WreportP INSTANCE = null;
 	
 	private WreportP() {		
 	}
 	
-	public static WriteReport getInstance () {
+	public static WreportP getInstance () {
 		if (INSTANCE == null) {
 			return new WreportP();
 		}
@@ -29,7 +29,7 @@ public class WreportP implements WriteReport {
 						break;
 			case INFO: log.info(error);
 						break;
-			case WARN: log.info(error);
+			case WARN: log.warn(error);
 						break;
 			case ERROR: log.error("Se ha producido el siguiente error en el fichero "+ fichero +": " + error);
 						break;
