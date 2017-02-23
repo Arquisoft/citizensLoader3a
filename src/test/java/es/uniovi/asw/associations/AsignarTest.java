@@ -14,9 +14,6 @@ public class AsignarTest {
 	private Ciudadano ciudadano;
 	private Usuario usuario;
 	
-	private Ciudadano c2;
-	private Usuario u2;
-
 	@Before
 	public void setUp() {
 		ciudadano = new Ciudadano("Pepe", "Pérez", "pp@gmail.es", null, "33586", "España", "12345678-A");
@@ -28,6 +25,14 @@ public class AsignarTest {
 	public void testAsignarLink() {
 		assertTrue(ciudadano.getUsuario() == usuario);
 		assertTrue(usuario.getCiudadano() == ciudadano);
+	}
+	
+	@Test
+	public void testAsignarUnlink() {
+		Association.Asignar.unlink(usuario, ciudadano);
+
+		assertTrue(ciudadano.getUsuario() == null);
+		assertTrue(usuario.getCiudadano() == null);
 	}
 
 	@Test
@@ -57,24 +62,20 @@ public class AsignarTest {
 	public void testToStringUsuario(){
 		assertTrue(usuario.toString().equals("Usuario [usuario=" + usuario.getUsuario() 
 					+ ", contraseña=" + usuario.getContraseña() + "]"));
-	}
-	
-	@Test
-	public void testAsignarUnlink() {
-		Association.Asignar.unlink(usuario, ciudadano);
-
-		assertTrue(ciudadano.getUsuario() == null);
-		assertTrue(usuario.getCiudadano() == null);
-	}
+	}	
 	
 	@Test
 	public void testHashCodeOfEquals(){
-		c2 = new Ciudadano("Pepe", "Pérez", "pp@gmail.es", new java.util.Date(), "33586", "España", "12345678-A");
-		assert ciudadano.equals(c2): "Los objetos deberian ser iguales en valor";
-		assert ciudadano.hashCode() == c2.hashCode(): "Hash en objetos iguales no son iguales";
+		Ciudadano c2 = new Ciudadano("Pepe", "Pérez", "pp@gmail.es", new java.util.Date(), "33586", "España", "12345678-A");
+//		assert ciudadano.equals(c2): "Los objetos deberian ser iguales en valor";
+//		assert ciudadano.hashCode() == c2.hashCode(): "Hash en objetos iguales no son iguales";
+		assertEquals(ciudadano, c2);
+		assertEquals(ciudadano.hashCode(), c2.hashCode());		
 		
-		u2 = new Usuario("Pepe", "abcd", ciudadano);
-		assert usuario.equals(u2): "Los objetos deberian ser iguales en valor";
-		assert usuario.hashCode() == u2.hashCode(): "Hash en objetos iguales no son iguales";
+		Usuario u2 = new Usuario("Pepe", "abcd", ciudadano);
+//		assert usuario.equals(u2): "Los objetos deberian ser iguales en valor";
+//		assert usuario.hashCode() == u2.hashCode(): "Hash en objetos iguales no son iguales";
+		assertEquals(usuario, u2);
+		assertEquals(usuario.hashCode(), u2.hashCode());		
 	}
 }

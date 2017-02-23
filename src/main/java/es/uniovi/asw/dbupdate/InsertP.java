@@ -1,13 +1,13 @@
-package es.uniovi.asw.DBUpdate;
+package es.uniovi.asw.dbupdate;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import es.uniovi.asw.ReportWriter.Level;
 import es.uniovi.asw.model.Ciudadano;
 import es.uniovi.asw.model.Usuario;
 import es.uniovi.asw.persistence.CiudadanoFinder;
 import es.uniovi.asw.persistence.util.Jpa;
+import es.uniovi.asw.reportwriter.Level;
 
 public class InsertP implements Insert {
 

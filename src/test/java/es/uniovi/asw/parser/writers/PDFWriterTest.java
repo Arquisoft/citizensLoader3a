@@ -10,23 +10,21 @@ import org.junit.Test;
 import com.itextpdf.text.pdf.PdfReader;
 import com.itextpdf.text.pdf.parser.PdfTextExtractor;
 
-import es.uniovi.asw.Parser.writers.PDFWriter;
 import es.uniovi.asw.model.Association;
 import es.uniovi.asw.model.Ciudadano;
 import es.uniovi.asw.model.Usuario;
+import es.uniovi.asw.parser.writers.PDFWriter;
 
 public class PDFWriterTest {
 
 	private Ciudadano ciudadano;
-	private Usuario usuario;
-	private PDFWriter writer;
-	
+			
 	@Before
 	public void setUp() {
 		ciudadano = new Ciudadano("Nombre", "Apellido1 Apellido2", "email@email.com", null, "mi casa", "Española", "12345678A");
-		usuario = new Usuario("usuario", "contraseña", ciudadano);
+		Usuario usuario = new Usuario("usuario", "contraseña", ciudadano);
 		Association.Asignar.link(usuario, ciudadano);
-		writer = new PDFWriter();
+		PDFWriter writer = new PDFWriter();
 		writer.write(ciudadano);
 	}
 	

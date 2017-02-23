@@ -10,23 +10,21 @@ import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.junit.Before;
 import org.junit.Test;
 
-import es.uniovi.asw.Parser.writers.WORDWriter;
 import es.uniovi.asw.model.Association;
 import es.uniovi.asw.model.Ciudadano;
 import es.uniovi.asw.model.Usuario;
+import es.uniovi.asw.parser.writers.WORDWriter;
 
 public class WORDWriterTest {
 
 	private Ciudadano ciudadano;
-	private Usuario usuario;
-	private WORDWriter writer;
-	
+		
 	@Before
 	public void setUp() {
 		ciudadano = new Ciudadano("Nombre", "Apellido1 Apellido2", "email@email.com", null, "mi casa", "Española", "12345678A");
-		usuario = new Usuario("usuario", "contraseña", ciudadano);
+		Usuario usuario = new Usuario("usuario", "contraseña", ciudadano);
 		Association.Asignar.link(usuario, ciudadano);
-		writer = new WORDWriter();
+		WORDWriter writer = new WORDWriter();
 		writer.write(ciudadano);
 	}
 	

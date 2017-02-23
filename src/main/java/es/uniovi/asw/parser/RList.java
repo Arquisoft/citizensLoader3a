@@ -1,16 +1,16 @@
-package es.uniovi.asw.Parser;
+package es.uniovi.asw.parser;
 
 import java.util.List;
 
 import org.apache.commons.lang.RandomStringUtils;
 
-import es.uniovi.asw.Parser.readers.Reader;
-import es.uniovi.asw.Parser.writers.Writer;
 import es.uniovi.asw.business.command.Command;
 import es.uniovi.asw.business.command.CommandExecutor;
 import es.uniovi.asw.model.Association;
 import es.uniovi.asw.model.Ciudadano;
 import es.uniovi.asw.model.Usuario;
+import es.uniovi.asw.parser.readers.Reader;
+import es.uniovi.asw.parser.writers.Writer;
 import es.uniovi.asw.util.BusinessException;
 
 public class RList implements ReadList {
@@ -18,8 +18,7 @@ public class RList implements ReadList {
 	private InsertQ insert = new InsertQ();
 	
 	private List<Ciudadano> ciudadanos;
-	private List<Ciudadano> insertados;
-	private String fichero;
+	private List<Ciudadano> insertados;	
 	private Reader reader;
 	private Writer writer;	
 	
@@ -32,9 +31,8 @@ public class RList implements ReadList {
 	}
 
 	@Override
-	public void read(String fichero) {	
-		this.fichero = fichero;
-		ciudadanos = reader.read(this.fichero);
+	public void read(String fichero) {			
+		ciudadanos = reader.read(fichero);
 		crearUsuarios();		
 		insertarCiudadanos(ciudadanos, fichero);
 		if (this.insertados != null)

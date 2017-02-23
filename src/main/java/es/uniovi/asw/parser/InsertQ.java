@@ -1,9 +1,9 @@
-package es.uniovi.asw.Parser;
+package es.uniovi.asw.parser;
 
 import java.util.List;
 
-import es.uniovi.asw.DBUpdate.Insert;
-import es.uniovi.asw.DBUpdate.InsertP;
+import es.uniovi.asw.dbupdate.Insert;
+import es.uniovi.asw.dbupdate.InsertP;
 import es.uniovi.asw.model.Ciudadano;
 
 public class InsertQ implements Insert {

@@ -1,4 +1,4 @@
-package es.uniovi.asw.reportWriter;
+package es.uniovi.asw.reportwriter;
 
 import static org.junit.Assert.*;
 
@@ -12,8 +12,8 @@ import java.io.IOException;
 import org.junit.Before;
 import org.junit.Test;
 
-import es.uniovi.asw.ReportWriter.Level;
-import es.uniovi.asw.ReportWriter.WreportP;
+import es.uniovi.asw.reportwriter.Level;
+import es.uniovi.asw.reportwriter.WreportP;
 
 public class WreportPTest {
 

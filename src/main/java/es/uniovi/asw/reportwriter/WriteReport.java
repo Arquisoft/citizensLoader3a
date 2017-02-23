@@ -1,4 +1,4 @@
-package es.uniovi.asw.ReportWriter;
+package es.uniovi.asw.reportwriter;
 
 public interface WriteReport {
 

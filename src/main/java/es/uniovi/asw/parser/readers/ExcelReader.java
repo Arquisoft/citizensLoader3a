@@ -1,4 +1,4 @@
-package es.uniovi.asw.Parser.readers;
+package es.uniovi.asw.parser.readers;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -12,9 +12,10 @@ import java.util.List;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import es.uniovi.asw.Parser.WreportQ;
-import es.uniovi.asw.ReportWriter.Level;
+
 import es.uniovi.asw.model.Ciudadano;
+import es.uniovi.asw.parser.WreportQ;
+import es.uniovi.asw.reportwriter.Level;
 import es.uniovi.asw.util.BusinessException;
 import es.uniovi.asw.util.CiudadanoChecker;
 
@@ -22,15 +23,7 @@ public class ExcelReader implements Reader {
 	
 	private WreportQ writeReport = new WreportQ();
 	
-	private final static String PATH = "src/main/resources/";
-	
-	private String nombre;
-	private String apellidos;
-	private String email;
-	private Date fechaNacimiento;
-	private String residencia;
-	private String nacionalidad;
-	private String dni;
+	private final static String PATH = "src/main/resources/";	
 	
 	@Override
 	public List<Ciudadano> read(String fichero) {
@@ -54,13 +47,13 @@ public class ExcelReader implements Reader {
 					row = rowIterator.next();					
 					
 					try {
-						nombre = CiudadanoChecker.checkNombre(row.getCell(0).getStringCellValue());
-						apellidos = CiudadanoChecker.checkApellidos(row.getCell(1).getStringCellValue());
-						email = CiudadanoChecker.checkEmail(row.getCell(2).getStringCellValue());
-						fechaNacimiento = CiudadanoChecker.checkFechaNacimiento(row.getCell(3).getDateCellValue());
-						residencia = CiudadanoChecker.checkResidencia(row.getCell(4).getStringCellValue());
-						nacionalidad = CiudadanoChecker.checkNacionalidad(row.getCell(5).getStringCellValue());
-						dni = CiudadanoChecker.checkDni(row.getCell(6).getStringCellValue());					
+						String nombre = CiudadanoChecker.checkNombre(row.getCell(0).getStringCellValue());
+						String apellidos = CiudadanoChecker.checkApellidos(row.getCell(1).getStringCellValue());
+						String email = CiudadanoChecker.checkEmail(row.getCell(2).getStringCellValue());
+						Date fechaNacimiento = CiudadanoChecker.checkFechaNacimiento(row.getCell(3).getDateCellValue());
+						String residencia = CiudadanoChecker.checkResidencia(row.getCell(4).getStringCellValue());
+						String nacionalidad = CiudadanoChecker.checkNacionalidad(row.getCell(5).getStringCellValue());
+						String dni = CiudadanoChecker.checkDni(row.getCell(6).getStringCellValue());					
 						
 						Ciudadano ciudadano = new Ciudadano(nombre, apellidos, email, fechaNacimiento, residencia, nacionalidad, dni);
 						listaCiudadanos.add(ciudadano);

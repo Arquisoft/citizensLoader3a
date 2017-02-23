@@ -1,12 +1,12 @@
 package es.uniovi.asw;
 
-import es.uniovi.asw.Parser.RList;
-import es.uniovi.asw.Parser.readers.ExcelReader;
-import es.uniovi.asw.Parser.readers.Reader;
-import es.uniovi.asw.Parser.writers.PDFWriter;
-import es.uniovi.asw.Parser.writers.TXTWriter;
-import es.uniovi.asw.Parser.writers.WORDWriter;
-import es.uniovi.asw.Parser.writers.Writer;
+import es.uniovi.asw.parser.RList;
+import es.uniovi.asw.parser.readers.ExcelReader;
+import es.uniovi.asw.parser.readers.Reader;
+import es.uniovi.asw.parser.writers.PDFWriter;
+import es.uniovi.asw.parser.writers.TXTWriter;
+import es.uniovi.asw.parser.writers.WORDWriter;
+import es.uniovi.asw.parser.writers.Writer;
 import es.uniovi.asw.util.Console;
 
 public class LoadUsers {	
@@ -16,7 +16,7 @@ public class LoadUsers {
 		runner.run(args);
 	}
 	
-	void run(String... args){
+	private void run(String... args){
 		Reader reader = null;
 		Writer writer = null;
 		String fichero;

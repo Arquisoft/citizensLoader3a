@@ -1,4 +1,4 @@
-package es.uniovi.asw.Parser;
+package es.uniovi.asw.parser;
 
 public interface ReadList {
 

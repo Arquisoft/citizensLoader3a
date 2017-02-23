@@ -1,4 +1,4 @@
-package es.uniovi.asw.Parser.readers;
+package es.uniovi.asw.parser.readers;
 
 import java.util.List;
 

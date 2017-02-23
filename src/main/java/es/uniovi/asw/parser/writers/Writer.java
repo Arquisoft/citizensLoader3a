@@ -1,4 +1,4 @@
-package es.uniovi.asw.Parser.writers;
+package es.uniovi.asw.parser.writers;
 
 import es.uniovi.asw.model.Ciudadano;
 

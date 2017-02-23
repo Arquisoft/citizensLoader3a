@@ -1,4 +1,4 @@
-package es.uniovi.asw.DBUpdate;
+package es.uniovi.asw.dbupdate;
 
 import es.uniovi.asw.model.Ciudadano;
 

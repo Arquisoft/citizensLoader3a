@@ -7,8 +7,6 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import es.uniovi.asw.Parser.readers.ExcelReader;
-import es.uniovi.asw.Parser.readers.Reader;
 import es.uniovi.asw.model.Ciudadano;
 
 public class ExcelReaderTest {

@@ -9,23 +9,21 @@ import java.io.IOException;
 import org.junit.Before;
 import org.junit.Test;
 
-import es.uniovi.asw.Parser.writers.TXTWriter;
 import es.uniovi.asw.model.Association;
 import es.uniovi.asw.model.Ciudadano;
 import es.uniovi.asw.model.Usuario;
+import es.uniovi.asw.parser.writers.TXTWriter;
 
 public class TXTWriterTest {
 
 	private Ciudadano ciudadano;
-	private Usuario usuario;
-	private TXTWriter writer;
-	
+			
 	@Before
 	public void setUp() {
 		ciudadano = new Ciudadano("Nombre", "Apellido1 Apellido2", "email@email.com", null, "mi casa", "Española", "12345678A");
-		usuario = new Usuario("usuario", "contraseña", ciudadano);
+		Usuario usuario = new Usuario("usuario", "contraseña", ciudadano);
 		Association.Asignar.link(usuario, ciudadano);
-		writer = new TXTWriter();
+		TXTWriter writer = new TXTWriter();
 		writer.write(ciudadano);
 	}
 	

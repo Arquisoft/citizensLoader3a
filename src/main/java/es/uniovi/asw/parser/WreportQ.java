@@ -1,8 +1,8 @@
-package es.uniovi.asw.Parser;
+package es.uniovi.asw.parser;
 
-import es.uniovi.asw.ReportWriter.Level;
-import es.uniovi.asw.ReportWriter.WreportP;
-import es.uniovi.asw.ReportWriter.WriteReport;
+import es.uniovi.asw.reportwriter.Level;
+import es.uniovi.asw.reportwriter.WreportP;
+import es.uniovi.asw.reportwriter.WriteReport;
 
 public class WreportQ implements WriteReport {
 

@@ -10,7 +10,7 @@ import es.uniovi.asw.parser.readers.ExcelReaderTest;
 import es.uniovi.asw.parser.writers.PDFWriterTest;
 import es.uniovi.asw.parser.writers.TXTWriterTest;
 import es.uniovi.asw.parser.writers.WORDWriterTest;
-import es.uniovi.asw.reportWriter.WreportPTest;
+import es.uniovi.asw.reportwriter.WreportPTest;
 
 @RunWith(Suite.class)
 @SuiteClasses({ 
