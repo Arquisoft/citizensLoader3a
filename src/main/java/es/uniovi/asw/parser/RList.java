@@ -7,8 +7,8 @@ import org.apache.commons.lang.RandomStringUtils;
 import es.uniovi.asw.business.command.Command;
 import es.uniovi.asw.business.command.CommandExecutor;
 import es.uniovi.asw.model.Association;
-import es.uniovi.asw.model.Ciudadano;
-import es.uniovi.asw.model.Usuario;
+import es.uniovi.asw.model.Citizen;
+import es.uniovi.asw.model.User;
 import es.uniovi.asw.parser.readers.Reader;
 import es.uniovi.asw.parser.writers.Writer;
 import es.uniovi.asw.util.BusinessException;
@@ -17,8 +17,8 @@ public class RList implements ReadList {
 	
 	private InsertQ insert = new InsertQ();
 	
-	private List<Ciudadano> ciudadanos;
-	private List<Ciudadano> insertados;	
+	private List<Citizen> ciudadanos;
+	private List<Citizen> insertados;	
 	private Reader reader;
 	private Writer writer;	
 	
@@ -40,29 +40,29 @@ public class RList implements ReadList {
 	}	
 
 	private void crearUsuarios() {
-		for(Ciudadano c: ciudadanos) {
+		for(Citizen c: ciudadanos) {
 			String usuario = generarUsuario(c);
 			String contraseña = generarContraseña();
-			Usuario u = new Usuario(usuario, contraseña, c);
+			User u = new User(usuario, contraseña, c);
 			Association.Asignar.link(u, c);
 		}
 	}
 	
-	private String generarUsuario(Ciudadano ciudadano) {
-		return ciudadano.getNombre() + RandomStringUtils.randomAlphanumeric(4);
+	private String generarUsuario(Citizen ciudadano) {
+		return ciudadano.getName() + RandomStringUtils.randomAlphanumeric(4);
 	}
 	
 	private String generarContraseña() {
 		return RandomStringUtils.randomAlphabetic(4) + RandomStringUtils.randomAlphanumeric(4);
 	}
 	
-	private void crearEmail(List<Ciudadano> insertados) {
-		for(Ciudadano c: insertados) {
+	private void crearEmail(List<Citizen> insertados) {
+		for(Citizen c: insertados) {
 			writer.write(c);
 		}		
 	}
 	
-	private Void insertarCiudadanos(final List<Ciudadano> listaCiudadanos, final String fichero) {		
+	private Void insertarCiudadanos(final List<Citizen> listaCiudadanos, final String fichero) {		
 		try {
 			new CommandExecutor<Void>().execute(new Command<Void>() {
 				@Override

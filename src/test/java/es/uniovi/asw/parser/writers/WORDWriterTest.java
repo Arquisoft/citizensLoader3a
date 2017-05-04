@@ -11,35 +11,35 @@ import org.junit.Before;
 import org.junit.Test;
 
 import es.uniovi.asw.model.Association;
-import es.uniovi.asw.model.Ciudadano;
-import es.uniovi.asw.model.Usuario;
+import es.uniovi.asw.model.Citizen;
+import es.uniovi.asw.model.User;
 import es.uniovi.asw.parser.writers.WORDWriter;
 
 public class WORDWriterTest {
 
-	private Ciudadano ciudadano;
+	private Citizen citizen;
 		
 	@Before
 	public void setUp() {
-		ciudadano = new Ciudadano("Nombre", "Apellido1 Apellido2", "email@email.com", null, "mi casa", "Española", "12345678A");
-		Usuario usuario = new Usuario("usuario", "contraseña", ciudadano);
-		Association.Asignar.link(usuario, ciudadano);
+		citizen = new Citizen("Nombre", "Apellido1 Apellido2", "email@email.com", null, "mi casa", "Española", "12345678A");
+		User User = new User("User", "contraseña", citizen);
+		Association.Asignar.link(User, citizen);
 		WORDWriter writer = new WORDWriter();
-		writer.write(ciudadano);
+		writer.write(citizen);
 	}
 	
 	@Test
 	public void escribeCorrectamente() {
 		XWPFDocument document;
 		try {
-			document = new XWPFDocument(new FileInputStream("src/test/resources/emails/"+ciudadano.getDni()));
+			document = new XWPFDocument(new FileInputStream("src/test/resources/emails/"+citizen.getDni()));
 			XWPFWordExtractor extractor = new XWPFWordExtractor(document);
 			String pagina = extractor.getText();
 			
-			assertTrue(pagina.contains(ciudadano.getNombre()));
-			assertTrue(pagina.contains(ciudadano.getApellidos()));
-			assertTrue(pagina.contains(ciudadano.getUsuario().getUsuario()));
-			assertTrue(pagina.contains(ciudadano.getUsuario().getContraseña()));
+			assertTrue(pagina.contains(citizen.getName()));
+			assertTrue(pagina.contains(citizen.getSurname()));
+			assertTrue(pagina.contains(citizen.getUser().getUsername()));
+			assertTrue(pagina.contains(citizen.getUser().getPassword()));
 			
 			extractor.close();			
 		} catch(IOException e){

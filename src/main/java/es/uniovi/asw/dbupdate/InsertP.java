@@ -3,9 +3,9 @@ package es.uniovi.asw.dbupdate;
 import java.util.ArrayList;
 import java.util.List;
 
-import es.uniovi.asw.model.Ciudadano;
-import es.uniovi.asw.model.Usuario;
-import es.uniovi.asw.persistence.CiudadanoFinder;
+import es.uniovi.asw.model.Citizen;
+import es.uniovi.asw.model.User;
+import es.uniovi.asw.persistence.CitizenFinder;
 import es.uniovi.asw.persistence.util.Jpa;
 import es.uniovi.asw.reportwriter.Level;
 
@@ -26,14 +26,15 @@ public class InsertP implements Insert {
 			return INSTANCE;
 		}
 	}
+	
 	@Override
-	public List<Ciudadano> insert(List<Ciudadano> listaCiudadanos, String fichero) {
-		List<Ciudadano> insertados = new ArrayList<Ciudadano>();
-		for(Ciudadano c: listaCiudadanos) {
-			Ciudadano aux = CiudadanoFinder.findByDni(c.getDni());
+	public List<Citizen> insert(List<Citizen> listaCiudadanos, String fichero) {
+		List<Citizen> insertados = new ArrayList<Citizen>();
+		for(Citizen c: listaCiudadanos) {
+			Citizen aux = CitizenFinder.findByDni(c.getDni());
 			
 			if(aux == null) {
-				Usuario ususario = c.getUsuario();
+				User ususario = c.getUser();
 				Jpa.getManager().persist(c);
 				Jpa.getManager().persist(ususario);
 				insertados.add(c);
@@ -45,4 +46,5 @@ public class InsertP implements Insert {
 		}
 		return insertados;
 	}
+	
 }

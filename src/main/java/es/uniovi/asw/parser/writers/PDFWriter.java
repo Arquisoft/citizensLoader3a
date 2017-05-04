@@ -9,7 +9,7 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 
-import es.uniovi.asw.model.Ciudadano;
+import es.uniovi.asw.model.Citizen;
 
 public class PDFWriter implements Writer {
 	
@@ -17,16 +17,16 @@ public class PDFWriter implements Writer {
 
 	@SuppressWarnings("unused")
 	@Override
-	public void write(Ciudadano ciudadano) {		
+	public void write(Citizen ciudadano) {		
 		try{
 			Document documento = new Document();			
 			PdfWriter writer = PdfWriter.getInstance(documento, new FileOutputStream(new File(PATH+ciudadano.getDni()+".pdf")));
 			documento.open();
-			documento.add(new Paragraph("Hola " + ciudadano.getNombre() + " " + ciudadano.getApellidos() + ","));
+			documento.add(new Paragraph("Hola " + ciudadano.getName() + " " + ciudadano.getSurname() + ","));
 			documento.add(new Paragraph("Este correo es para informarle de que ha sido dado de alta correctamente en el sistema de participación "
 					+ "ciudadana. A continuación, le comunicamos su usuario y contraseña: "));
-			documento.add(new Paragraph("\t\tUsuario: "+ ciudadano.getUsuario().getUsuario()));
-			documento.add(new Paragraph("\t\tContraseña: "+ ciudadano.getUsuario().getContraseña()));
+			documento.add(new Paragraph("\t\tUsuario: "+ ciudadano.getUser().getUsername()));
+			documento.add(new Paragraph("\t\tContraseña: "+ ciudadano.getUser().getPassword()));
 			documento.close();			
 		} catch (DocumentException e) {
 			e.printStackTrace();

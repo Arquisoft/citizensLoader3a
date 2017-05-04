@@ -17,11 +17,9 @@ import es.uniovi.asw.reportwriter.WreportP;
 
 public class WreportPTest {
 
-	private WreportP reporter;
-	
 	@Before
 	public void setUp() {
-		reporter = (WreportP) WreportP.getInstance();
+		WreportP reporter = WreportP.getInstance();
 		
 		//Log de trace
 		reporter.report("Error de prueba TRACE", "prueba.xlsx", Level.TRACE);

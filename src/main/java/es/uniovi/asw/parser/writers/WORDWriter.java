@@ -9,7 +9,7 @@ import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
 
-import es.uniovi.asw.model.Ciudadano;
+import es.uniovi.asw.model.Citizen;
 import es.uniovi.asw.util.Console;
 
 public class WORDWriter implements Writer {
@@ -18,7 +18,7 @@ public class WORDWriter implements Writer {
 	
 	@SuppressWarnings("resource")
 	@Override
-	public void write(Ciudadano ciudadano) {		
+	public void write(Citizen ciudadano) {		
 		XWPFDocument documento;
 		FileOutputStream out;
 		XWPFParagraph parrafo;
@@ -31,7 +31,7 @@ public class WORDWriter implements Writer {
 			parrafo.setAlignment(ParagraphAlignment.BOTH);
 			run = parrafo.createRun();
 			
-			run.setText("Hola " + ciudadano.getNombre() + " " + ciudadano.getApellidos());
+			run.setText("Hola " + ciudadano.getName() + " " + ciudadano.getSurname());
 			run.addCarriageReturn();
 			run.addCarriageReturn();
 			run.setText("Este correo es para informarle de que ha sido dado de alta correctamente en el sistema de participación " + 
@@ -39,10 +39,10 @@ public class WORDWriter implements Writer {
 			run.addCarriageReturn();
 			run.addCarriageReturn();
 			run.addTab();
-			run.setText("Usuario: "+ ciudadano.getUsuario().getUsuario());
+			run.setText("Usuario: "+ ciudadano.getUser().getUsername());
 			run.addCarriageReturn();
 			run.addTab();
-			run.setText("Contraseña: "+ ciudadano.getUsuario().getContraseña());
+			run.setText("Contraseña: "+ ciudadano.getUser().getPassword());
 			
 			documento.write(out);
 		} catch (IOException e) {

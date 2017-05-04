@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.regex.Pattern;
 
-public class CiudadanoChecker {
+public class CitizenChecker {
 
 	public static String checkNombre(String nombre) throws BusinessException {
 		Pattern patron = Pattern.compile("^[a-zA-Z_áéíóúñ^\\s]*$");	

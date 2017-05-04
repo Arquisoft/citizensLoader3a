@@ -13,11 +13,11 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import es.uniovi.asw.model.Ciudadano;
+import es.uniovi.asw.model.Citizen;
 import es.uniovi.asw.parser.WreportQ;
 import es.uniovi.asw.reportwriter.Level;
 import es.uniovi.asw.util.BusinessException;
-import es.uniovi.asw.util.CiudadanoChecker;
+import es.uniovi.asw.util.CitizenChecker;
 
 public class ExcelReader implements Reader {	
 	
@@ -26,8 +26,8 @@ public class ExcelReader implements Reader {
 	private final static String PATH = "src/main/resources/";	
 	
 	@Override
-	public List<Ciudadano> read(String fichero) {
-		List<Ciudadano> listaCiudadanos = new ArrayList<Ciudadano>();					
+	public List<Citizen> read(String fichero) {
+		List<Citizen> listaCiudadanos = new ArrayList<Citizen>();					
 		FileInputStream file;
 		XSSFWorkbook workbook;
 		XSSFSheet sheet;
@@ -47,15 +47,15 @@ public class ExcelReader implements Reader {
 					row = rowIterator.next();					
 					
 					try {
-						String nombre = CiudadanoChecker.checkNombre(row.getCell(0).getStringCellValue());
-						String apellidos = CiudadanoChecker.checkApellidos(row.getCell(1).getStringCellValue());
-						String email = CiudadanoChecker.checkEmail(row.getCell(2).getStringCellValue());
-						Date fechaNacimiento = CiudadanoChecker.checkFechaNacimiento(row.getCell(3).getDateCellValue());
-						String residencia = CiudadanoChecker.checkResidencia(row.getCell(4).getStringCellValue());
-						String nacionalidad = CiudadanoChecker.checkNacionalidad(row.getCell(5).getStringCellValue());
-						String dni = CiudadanoChecker.checkDni(row.getCell(6).getStringCellValue());					
+						String nombre = CitizenChecker.checkNombre(row.getCell(0).getStringCellValue());
+						String apellidos = CitizenChecker.checkApellidos(row.getCell(1).getStringCellValue());
+						String email = CitizenChecker.checkEmail(row.getCell(2).getStringCellValue());
+						Date fechaNacimiento = CitizenChecker.checkFechaNacimiento(row.getCell(3).getDateCellValue());
+						String residencia = CitizenChecker.checkResidencia(row.getCell(4).getStringCellValue());
+						String nacionalidad = CitizenChecker.checkNacionalidad(row.getCell(5).getStringCellValue());
+						String dni = CitizenChecker.checkDni(row.getCell(6).getStringCellValue());					
 						
-						Ciudadano ciudadano = new Ciudadano(nombre, apellidos, email, fechaNacimiento, residencia, nacionalidad, dni);
+						Citizen ciudadano = new Citizen(nombre, apellidos, email, fechaNacimiento, residencia, nacionalidad, dni);
 						listaCiudadanos.add(ciudadano);
 					} catch (BusinessException e) {
 						String error = "Error de lectura de los datos en la fila "+counter;

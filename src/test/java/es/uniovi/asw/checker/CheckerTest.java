@@ -7,25 +7,25 @@ import java.util.Date;
 import org.junit.Before;
 import org.junit.Test;
 
-import es.uniovi.asw.model.Ciudadano;
+import es.uniovi.asw.model.Citizen;
 import es.uniovi.asw.util.BusinessException;
-import es.uniovi.asw.util.CiudadanoChecker;
+import es.uniovi.asw.util.CitizenChecker;
 
 
 public class CheckerTest {
 	
-	private Date d = new java.util.Date();
-	private Ciudadano c;
+	private Date d = new Date();
+	private Citizen c;
 	
 	@Before
 	public void setUp(){
-		c = new Ciudadano("Andres", "", "asd", d, "asdsa", "12345", "98589858");
+		c = new Citizen("Andres", "", "asd", d, "asdsa", "12345", "98589858");
 	}
 	
 	@Test
 	public void testCheckNombre(){
 		try {
-			assertEquals("Andres", CiudadanoChecker.checkNombre(c.getNombre()));
+			assertEquals("Andres", CitizenChecker.checkNombre(c.getName()));
 		} catch (BusinessException e) {
 			e.printStackTrace();
 		}
@@ -34,7 +34,7 @@ public class CheckerTest {
 	@Test
 	public void testCheckApellido(){
 		try {
-			CiudadanoChecker.checkApellidos(c.getApellidos());
+			CitizenChecker.checkApellidos(c.getSurname());
 		} catch (BusinessException e) {
 			assertEquals("Apellidos incorrectos", e.getMessage()); 
 		}
@@ -43,7 +43,7 @@ public class CheckerTest {
 	@Test
 	public void testCheckEmail(){
 		try {
-			CiudadanoChecker.checkEmail(c.getEmail());
+			CitizenChecker.checkEmail(c.getEmail());
 		} catch (BusinessException e) {
 			assertEquals("Email incorrecto", e.getMessage()); 
 		}
@@ -52,7 +52,7 @@ public class CheckerTest {
 	@Test
 	public void testFechaDeNacimiento(){
 		try {
-			assertEquals(d, CiudadanoChecker.checkFechaNacimiento(c.getFechaNacimiento()));
+			assertEquals(d, CitizenChecker.checkFechaNacimiento(c.getBirthday()));
 		} catch (BusinessException e) {
 			e.printStackTrace();
 		}
@@ -61,13 +61,13 @@ public class CheckerTest {
 	@Test
 	public void testCheckNacionalidad(){
 		try {
-			CiudadanoChecker.checkNacionalidad(c.getNacionalidad());
+			CitizenChecker.checkNacionalidad(c.getNationality());
 		} catch (BusinessException e) {
 			assertEquals("Nacionalidad incorrecta", e.getMessage()); 
 		}
 		
 		try {
-			assertEquals("ESPAÑA", CiudadanoChecker.checkNacionalidad("ESPAÑA"));
+			assertEquals("ESPAÑA", CitizenChecker.checkNacionalidad("ESPAÑA"));
 		} catch (BusinessException e) {
 		}
 	}
@@ -75,13 +75,13 @@ public class CheckerTest {
 	@Test
 	public void testCheckDni(){
 		try {
-			CiudadanoChecker.checkDni(c.getDni());
+			CitizenChecker.checkDni(c.getDni());
 		} catch (BusinessException e) {
 			assertEquals("Dni incorrecto", e.getMessage()); 
 		}
 		
 		try {
-			assertEquals(c.getDni()+"G", CiudadanoChecker.checkDni(c.getDni()+"G"));
+			assertEquals(c.getDni()+"G", CitizenChecker.checkDni(c.getDni()+"G"));
 		} catch (BusinessException e) {
 		}
 	}

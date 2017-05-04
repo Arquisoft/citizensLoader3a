@@ -1,8 +1,9 @@
 package es.uniovi.asw.dbupdate;
 
-import es.uniovi.asw.model.Ciudadano;
+import es.uniovi.asw.model.Citizen;
 
 public interface Delete {
 	
-	public void delete(Ciudadano c);
+	public void delete(Citizen c);
+	
 }
